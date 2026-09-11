@@ -315,49 +315,73 @@
         </div>
 
         <!-- Terminal -->
-        <div class="lg:col-span-5 w-full" data-aos="fade-left" data-aos-duration="800">
-          <div class="rounded-2xl bg-forest-900/90 border border-forest-800 overflow-hidden shadow-2xl shadow-black/50">
+   <div class="lg:col-span-5 w-full" data-aos="fade-left" data-aos-duration="800">
+        <div class="rounded-2xl bg-forest-900/90 border border-forest-800 overflow-hidden shadow-2xl shadow-black/50">
 
-            <div class="px-4 py-3 bg-forest-850/90 border-b border-forest-800 flex items-center justify-between gap-3">
-              <div class="flex items-center gap-1.5">
-                <span class="w-2.5 h-2.5 rounded-full bg-rose-500/70"></span>
-                <span class="w-2.5 h-2.5 rounded-full bg-amber-500/70"></span>
-                <span class="w-2.5 h-2.5 rounded-full bg-forest-sage/70"></span>
-              </div>
-              <span class="text-[10px] sm:text-xs font-mono text-slate-500 truncate">
-                backend-system.cs
-              </span>
+          <!-- Editor Header Tab -->
+          <div class="px-4 py-3 bg-forest-850/90 border-b border-forest-800 flex items-center justify-between gap-3">
+            <div class="flex items-center gap-1.5">
+              <span class="w-2.5 h-2.5 rounded-full bg-rose-500/70"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-amber-500/70"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-forest-sage/70"></span>
             </div>
-
-            <div class="p-4 sm:p-5 font-mono text-[11px] sm:text-xs leading-7">
-              <p class="text-slate-600">// How I approach backend development</p>
-              <p class="text-slate-400">
-                <span class="text-forest-sage">$</span> dotnet run --profile production
-              </p>
-
-              <div class="mt-3 rounded-xl bg-forest-950 border border-forest-800 p-4 overflow-x-auto">
-                <p><span class="text-purple-300">public</span> <span class="text-blue-300">async</span> Task&lt;Result&gt;</p>
-                <p class="pl-4">HandleRequestAsync(Request request)</p>
-                <p class="pl-4">{</p>
-                <p class="pl-8 text-slate-500">// Validate business requirements</p>
-                <p class="pl-8">Validate(request);</p>
-                <p class="pl-8 text-slate-500">// Execute application logic</p>
-                <p class="pl-8">Process(request);</p>
-                <p class="pl-8 text-slate-500">// Persist only what is necessary</p>
-                <p class="pl-8">await SaveAsync();</p>
-                <p class="pl-8"><span class="text-purple-300">return</span> Result.Success();</p>
-                <p class="pl-4">}</p>
-              </div>
-
-              <div class="mt-4 flex items-center gap-2 text-forest-light terminal-line">
-                <i class="fa-solid fa-circle-check"></i>
-                <span>Service ready</span>
-                <span class="text-slate-600">•</span>
-                <span class="text-slate-500">clean · testable · maintainable</span>
-              </div>
+            <div class="flex items-center gap-1.5 text-[10px] sm:text-xs font-mono text-slate-400 truncate">
+              <i class="fa-brands fa-microsoft text-forest-sage text-[11px]"></i>
+              <span>CreateOrderHandler.cs</span>
             </div>
           </div>
+
+          <!-- Code Body -->
+          <div class="p-4 sm:p-5 font-mono text-[11px] sm:text-xs leading-6">
+            <p class="text-slate-500">// CQRS Command Handler with Domain Validation</p>
+            
+            <div class="mt-2.5 rounded-xl bg-forest-950 border border-forest-800 p-4 overflow-x-auto text-slate-200">
+              <p>
+                <span class="text-emerald-400">public async</span> 
+                <span class="text-teal-300">Task</span>&lt;<span class="text-teal-300">Result</span>&lt;<span class="text-emerald-400">Guid</span>&gt;&gt; 
+                <span class="text-sky-300">Handle</span>(
+              </p>
+              <p class="pl-4">
+                <span class="text-amber-200">CreateOrderCommand</span> cmd, 
+                <span class="text-teal-300">CancellationToken</span> ct)
+              </p>
+              <p class="pl-4">{</p>
+              
+              <p class="pl-8 text-slate-500">// 1. Domain validation & entity creation</p>
+              <p class="pl-8">
+                <span class="text-emerald-400">var</span> order = 
+                <span class="text-amber-200">Order</span>.<span class="text-sky-300">Create</span>(cmd.CustomerId, cmd.Items);
+              </p>
+              
+              <p class="pl-8 text-slate-500 mt-2">// 2. Transactional persistence</p>
+              <p class="pl-8">
+                <span class="text-emerald-400">await</span> _orderRepository.<span class="text-sky-300">AddAsync</span>(order, ct);
+              </p>
+              <p class="pl-8">
+                <span class="text-emerald-400">await</span> _unitOfWork.<span class="text-sky-300">SaveChangesAsync</span>(ct);
+              </p>
+              
+              <p class="pl-8 text-slate-500 mt-2">// 3. Type-safe Result response</p>
+              <p class="pl-8">
+                <span class="text-emerald-400">return</span> 
+                <span class="text-teal-300">Result</span>.<span class="text-sky-300">Success</span>(order.Id);
+              </p>
+              
+              <p class="pl-4">}</p>
+            </div>
+
+            <!-- Footer Status Bar -->
+            <div class="mt-4 flex flex-wrap items-center justify-between gap-2 text-[11px] font-mono border-t border-forest-800/80 pt-3">
+              <div class="flex items-center gap-2 text-forest-sage">
+                <i class="fa-solid fa-circle-check text-xs"></i>
+                <span>Build succeeded</span>
+              </div>
+              <span class="text-slate-500 text-[10px] sm:text-xs">CQRS · MediatR · Result Pattern</span>
+            </div>
+
+          </div>
         </div>
+      </div>
 
       </div>
     </section>
@@ -609,7 +633,7 @@
           <span class="text-forest-sage text-xs font-mono uppercase tracking-[.2em]">04 · How I Work</span>
           <h2 class="mt-2 text-2xl sm:text-3xl font-bold text-white">From requirement to reliable software.</h2>
 
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-9">
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5 mt-9">
             <div>
               <span class="text-forest-sage font-mono text-xs">01</span>
               <h3 class="mt-2 font-bold text-white">Understand</h3>
@@ -626,7 +650,12 @@
               <p class="mt-2 text-xs sm:text-sm text-slate-500 leading-6">Implement clean, maintainable, and testable solutions.</p>
             </div>
             <div>
-              <span class="text-forest-sage font-mono text-xs">04</span>
+                <span class="text-forest-sage font-mono text-xs">04</span>
+                <h3 class="mt-2 font-bold text-white">Test</h3>
+                <p class="mt-2 text-xs sm:text-sm text-slate-500 leading-6">Validate logic with unit, integration, and API contract tests.</p>
+            </div>
+            <div>
+              <span class="text-forest-sage font-mono text-xs">05</span>
               <h3 class="mt-2 font-bold text-white">Improve</h3>
               <p class="mt-2 text-xs sm:text-sm text-slate-500 leading-6">Review performance, reliability, security, and maintainability.</p>
             </div>
@@ -662,7 +691,7 @@
             GitHub
           </a>
 
-          <a href="https://www.linkedin.com/in/youssef-dabash-555162299" target="_blank" rel="noopener noreferrer"
+          <a href="https://www.linkedin.com/in/youssef-m-dabash-555162299" target="_blank" rel="noopener noreferrer"
              class="w-full sm:w-auto px-5 py-3 rounded-xl bg-forest-850 border border-forest-800 text-white hover:border-forest-700 transition text-sm flex items-center justify-center gap-2">
             <i class="fa-brands fa-linkedin"></i>
             LinkedIn
