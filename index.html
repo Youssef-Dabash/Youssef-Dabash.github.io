@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Youssef Dabash — .NET Backend Developer building reliable Web Applications and APIs with C# and ASP.NET Core." />
+  <title>Youssef Dabash | .NET</title>
+
+  <!-- Open Graph / Social sharing -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Youssef Dabash | .NET Backend Developer" />
+  <meta property="og:description" content="Youssef Dabash — .NET Backend Developer building reliable Web Applications and APIs with C# and ASP.NET Core." />
+  <meta property="og:image" content="https://your-domain.com/profile.jpg" />
+  <meta property="og:url" content="https://your-domain.com" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Youssef Dabash | .NET Backend Developer" />
+  <meta name="twitter:description" content="Youssef Dabash — .NET Backend Developer building reliable Web Applications and APIs with C# and ASP.NET Core." />
+  <meta name="twitter:image" content="https://your-domain.com/profile.jpg" />
+
+  <link rel="icon" type="image/png" href="favicon.png" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS, FontAwesome & AOS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            forest: {
+              950: '#090d0b',
+              900: '#0f1712',
+              850: '#141e18',
+              800: '#1c2921',
+              700: '#26372d',
+              accent: '#2ea043',
+              sage: '#3fb950',
+              light: '#86efac'
+            }
+          },
+          boxShadow: {
+            glow: '0 0 40px rgba(63,185,80,0.10)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-width: 320px;
+    }
+
+    .bg-matte-grid {
+      background-size: 36px 36px;
+      background-image:
+        linear-gradient(to right, rgba(255,255,255,.018) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255,255,255,.018) 1px, transparent 1px);
+    }
+
+    .hero-glow {
+      background:
+        radial-gradient(circle at 50% 35%, rgba(63,185,80,.10), transparent 32%),
+        radial-gradient(circle at 85% 65%, rgba(46,160,67,.06), transparent 25%);
+    }
+
+    .gradient-text {
+      background: linear-gradient(90deg, #3fb950, #86efac);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .card {
+      transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(63,185,80,.45);
+      box-shadow: 0 18px 45px rgba(0,0,0,.20);
+    }
+
+    .terminal-line {
+      animation: terminalPulse 3s ease-in-out infinite;
+    }
+
+    .float-slow {
+      animation: float 5s ease-in-out infinite;
+    }
+
+    .typing-dot {
+      animation: blink 1.4s infinite;
+    }
+
+    .typing-dot:nth-child(2) { animation-delay: .2s; }
+    .typing-dot:nth-child(3) { animation-delay: .4s; }
+
+    @keyframes terminalPulse {
+      0%, 100% { opacity: .75; }
+      50% { opacity: 1; }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-7px); }
+    }
+
+    @keyframes blink {
+      0%, 80%, 100% { opacity: .25; }
+      40% { opacity: 1; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+      }
+    }
+
+    /* Mobile nav */
+    .mobile-link {
+      display: block;
+      padding: .75rem .6rem;
+      border-radius: .6rem;
+      color: #94a3b8;
+      font-size: .875rem;
+      font-weight: 500;
+      transition: background .2s ease, color .2s ease;
+    }
+
+    .mobile-link:hover {
+      background: #141e18;
+      color: #86efac;
+    }
+
+    #mobile-menu {
+      animation: menuSlide .25s ease-out;
+    }
+
+    @keyframes menuSlide {
+      from { opacity: 0; transform: translateY(-8px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .tech {
+      display: inline-flex;
+      align-items: center;
+      padding: .3rem .6rem;
+      border-radius: .45rem;
+      background: #090d0b;
+      border: 1px solid #1c2921;
+      color: #aeb8b1;
+      font: 500 .68rem/1.2 "JetBrains Mono", monospace;
+    }
+
+    .project-type {
+      display: inline-flex;
+      align-items: center;
+      padding: .3rem .65rem;
+      border-radius: .45rem;
+      background: #090d0b;
+      border: 1px solid #1c2921;
+      color: #86efac;
+      font: 500 .68rem/1.2 "JetBrains Mono", monospace;
+    }
+  </style>
+</head>
+
+<body class="bg-forest-950 text-slate-300 font-sans selection:bg-forest-accent selection:text-white antialiased overflow-x-hidden bg-matte-grid">
+
+  <!-- Ambient background -->
+  <div class="fixed inset-0 pointer-events-none -z-10 hero-glow"></div>
+  <div class="fixed top-0 left-[10%] w-72 sm:w-[500px] h-60 sm:h-[300px] bg-forest-accent/5 rounded-full blur-[110px] pointer-events-none -z-10"></div>
+  <div class="fixed bottom-0 right-[5%] w-72 sm:w-[450px] h-60 sm:h-[300px] bg-forest-sage/5 rounded-full blur-[110px] pointer-events-none -z-10"></div>
+
+  <!-- Navbar -->
+  <header class="sticky top-0 z-50 border-b border-forest-800/80 bg-forest-950/80 backdrop-blur-xl transition-shadow duration-300">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+
+      <a href="#" class="font-bold text-base sm:text-lg tracking-tight text-white flex items-center gap-2">
+        <span class="relative flex h-2.5 w-2.5">
+          <span class="absolute inline-flex h-full w-full rounded-full bg-forest-sage opacity-50 animate-ping"></span>
+          <span class="relative inline-flex h-2.5 w-2.5 rounded-full bg-forest-sage"></span>
+        </span>
+        <span>Youssef <span class="text-forest-sage">Dabash</span></span>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-slate-400">
+        <a href="#about" class="nav-link hover:text-forest-sage transition">About</a>
+        <a href="#skills" class="nav-link hover:text-forest-sage transition">Stack</a>
+        <a href="#projects" class="nav-link hover:text-forest-sage transition">Projects</a>
+        <a href="#contact" class="nav-link hover:text-forest-sage transition">Contact</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <a href="#contact"
+           class="hidden sm:inline-flex px-3.5 sm:px-4 py-2 rounded-xl bg-forest-accent hover:bg-forest-sage text-white text-xs sm:text-sm font-semibold transition hover:-translate-y-0.5">
+          Get in Touch
+        </a>
+
+        <button id="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false"
+                class="md:hidden w-10 h-10 rounded-lg border border-forest-800 flex items-center justify-center text-slate-300 hover:text-forest-sage hover:border-forest-700 transition">
+          <i class="fa-solid fa-bars" id="menu-icon"></i>
+        </button>
+      </div>
+    </div>
+
+    <nav id="mobile-menu" class="md:hidden hidden flex-col px-4 pb-4 gap-1 border-t border-forest-800/80">
+      <a href="#about" class="mobile-link">About</a>
+      <a href="#skills" class="mobile-link">Stack</a>
+      <a href="#projects" class="mobile-link">Projects</a>
+      <a href="#contact" class="mobile-link">Contact</a>
+    </nav>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <!-- HERO -->
+    <section class="min-h-[calc(100vh-4rem)] flex items-center py-12 sm:py-16 lg:py-20">
+      <div class="w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
+
+        <!-- Hero copy -->
+        <div class="lg:col-span-7 text-center lg:text-left" data-aos="fade-right" data-aos-duration="800">
+
+          <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-5 mb-7" data-aos="fade-up" data-aos-delay="0">
+            <div class="relative w-24 h-24 sm:w-28 sm:h-28 shrink-0 float-slow">
+              <div class="absolute -inset-1 rounded-full bg-forest-sage/15 blur-md"></div>
+              <img
+                src="profile.jpg"
+                alt="Youssef Dabash"
+                class="relative w-full h-full object-cover rounded-full border-2 border-forest-700 bg-forest-900 shadow-2xl"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+              />
+              <div class="hidden relative w-full h-full rounded-full border-2 border-forest-700 bg-forest-900 items-center justify-center text-2xl font-bold text-forest-sage">
+                YD
+              </div>
+              <span class="absolute bottom-0 right-0 w-4 h-4 rounded-full bg-forest-sage border-[3px] border-forest-950"></span>
+            </div>
+
+            <div class="text-center sm:text-left">
+              <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-forest-800 bg-forest-900/80 text-forest-light text-[11px] sm:text-xs font-mono">
+                <span class="w-1.5 h-1.5 rounded-full bg-forest-sage"></span>
+                .NET Backend Development
+              </div>
+              <p class="mt-2 text-xs text-slate-500 font-mono">
+                Computer Science Graduate · Menoufia University
+              </p>
+            </div>
+          </div>
+
+          <div class="space-y-5" data-aos="fade-up" data-aos-delay="100">
+            <h1>
+              Building reliable
+              <span class="gradient-text block sm:inline"> backend systems</span>
+              <span class="block sm:inline">that solve real problems.</span>
+            </h1>
+            <p class="max-w-2xl mx-auto lg:mx-0 text-sm sm:text-base lg:text-lg text-slate-400 leading-8">
+              .NET Backend Developer focused on building maintainable
+              <strong class="text-slate-200">Web Applications and Web APIs</strong>
+              with C# and ASP.NET Core. I care about understanding the business requirements,
+              designing clear system boundaries, and delivering code that is reliable, secure, and easy to evolve.
+            </p>
+          </div>
+
+          <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3 mt-8" data-aos="fade-up" data-aos-delay="200">
+            <a href="#projects"
+               class="px-5 py-3 rounded-xl bg-forest-accent text-white font-semibold hover:bg-forest-sage transition text-sm flex items-center gap-2 shadow-lg shadow-forest-accent/10 hover:-translate-y-0.5">
+              <i class="fa-solid fa-layer-group"></i>
+              View My Projects
+            </a>
+
+            <a href="https://github.com/Youssef-Dabash" target="_blank" rel="noopener noreferrer"
+               class="px-5 py-3 rounded-xl bg-forest-900/80 border border-forest-800 text-slate-200 font-semibold hover:border-forest-700 hover:bg-forest-850 transition text-sm flex items-center gap-2 hover:-translate-y-0.5">
+              <i class="fa-brands fa-github"></i>
+              GitHub
+            </a>
+
+            <!-- Replace # with your portfolio URL -->
+            <a href="#"
+               class="px-5 py-3 rounded-xl border border-forest-800/80 text-slate-400 hover:text-white hover:border-forest-700 transition text-sm flex items-center gap-2">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              Portfolio
+            </a>
+          </div>
+
+          <div class="mt-8 flex flex-wrap justify-center lg:justify-start gap-x-5 gap-y-2 text-xs text-slate-500 font-mono" data-aos="fade-up" data-aos-delay="300">
+            <span><i class="fa-solid fa-check text-forest-sage mr-1"></i>Clean Code</span>
+            <span><i class="fa-solid fa-check text-forest-sage mr-1"></i>API Design</span>
+            <span><i class="fa-solid fa-check text-forest-sage mr-1"></i>Database Design</span>
+            <span><i class="fa-solid fa-check text-forest-sage mr-1"></i>Problem Solving</span>
+          </div>
+        </div>
+
+        <!-- Terminal -->
+        <div class="lg:col-span-5 w-full" data-aos="fade-left" data-aos-duration="800">
+          <div class="rounded-2xl bg-forest-900/90 border border-forest-800 overflow-hidden shadow-2xl shadow-black/50">
+
+            <div class="px-4 py-3 bg-forest-850/90 border-b border-forest-800 flex items-center justify-between gap-3">
+              <div class="flex items-center gap-1.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-rose-500/70"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-amber-500/70"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-forest-sage/70"></span>
+              </div>
+              <span class="text-[10px] sm:text-xs font-mono text-slate-500 truncate">
+                backend-system.cs
+              </span>
+            </div>
+
+            <div class="p-4 sm:p-5 font-mono text-[11px] sm:text-xs leading-7">
+              <p class="text-slate-600">// How I approach backend development</p>
+              <p class="text-slate-400">
+                <span class="text-forest-sage">$</span> dotnet run --profile production
+              </p>
+
+              <div class="mt-3 rounded-xl bg-forest-950 border border-forest-800 p-4 overflow-x-auto">
+                <p><span class="text-purple-300">public</span> <span class="text-blue-300">async</span> Task&lt;Result&gt;</p>
+                <p class="pl-4">HandleRequestAsync(Request request)</p>
+                <p class="pl-4">{</p>
+                <p class="pl-8 text-slate-500">// Validate business requirements</p>
+                <p class="pl-8">Validate(request);</p>
+                <p class="pl-8 text-slate-500">// Execute application logic</p>
+                <p class="pl-8">Process(request);</p>
+                <p class="pl-8 text-slate-500">// Persist only what is necessary</p>
+                <p class="pl-8">await SaveAsync();</p>
+                <p class="pl-8"><span class="text-purple-300">return</span> Result.Success();</p>
+                <p class="pl-4">}</p>
+              </div>
+
+              <div class="mt-4 flex items-center gap-2 text-forest-light terminal-line">
+                <i class="fa-solid fa-circle-check"></i>
+                <span>Service ready</span>
+                <span class="text-slate-600">•</span>
+                <span class="text-slate-500">clean · testable · maintainable</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="scroll-mt-24 py-14 sm:py-20" data-aos="fade-up">
+      <div class="max-w-3xl mb-9">
+        <span class="text-forest-sage text-xs font-mono uppercase tracking-[.2em]">01 · About</span>
+        <h2 class="mt-2 text-2xl sm:text-3xl font-bold text-white tracking-tight">An engineering mindset, not just a technology list.</h2>
+        <p class="mt-3 text-sm sm:text-base text-slate-400 leading-7">
+          I approach development by first understanding the problem, the business rules, and the data flow.
+          Then I choose the simplest architecture and tools that can solve the problem well.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
+
+        <article class="card p-5 sm:p-6 rounded-2xl bg-forest-900/80 border border-forest-800" data-aos="fade-up" data-aos-delay="0">
+          <div class="w-11 h-11 rounded-xl bg-forest-850 border border-forest-800 flex items-center justify-center text-forest-sage">
+            <i class="fa-solid fa-brain"></i>
+          </div>
+          <h3 class="mt-5 text-lg font-bold text-white">Understand First</h3>
+          <p class="mt-3 text-sm text-slate-400 leading-7">
+            I focus on requirements, responsibilities, edge cases, and data flow before writing implementation code.
+          </p>
+        </article>
+
+        <article class="card p-5 sm:p-6 rounded-2xl bg-forest-900/80 border border-forest-800" data-aos="fade-up" data-aos-delay="100">
+          <div class="w-11 h-11 rounded-xl bg-forest-850 border border-forest-800 flex items-center justify-center text-forest-sage">
+            <i class="fa-solid fa-diagram-project"></i>
+          </div>
+          <h3 class="mt-5 text-lg font-bold text-white">Design with Purpose</h3>
+          <p class="mt-3 text-sm text-slate-400 leading-7">
+            I use separation of concerns, SOLID principles, and appropriate architecture to keep systems easier to maintain and extend.
+          </p>
+        </article>
+
+        <article class="card p-5 sm:p-6 rounded-2xl bg-forest-900/80 border border-forest-800" data-aos="fade-up" data-aos-delay="200">
+          <div class="w-11 h-11 rounded-xl bg-forest-850 border border-forest-800 flex items-center justify-center text-forest-sage">
+            <i class="fa-solid fa-shield-halved"></i>
+          </div>
+          <h3 class="mt-5 text-lg font-bold text-white">Build Responsibly</h3>
+          <p class="mt-3 text-sm text-slate-400 leading-7">
+            I pay attention to validation, authorization, error handling, database consistency, performance, and long-term maintainability.
+          </p>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="scroll-mt-24 py-14 sm:py-20" data-aos="fade-up">
+      <div class="mb-9">
+        <span class="text-forest-sage text-xs font-mono uppercase tracking-[.2em]">02 · Technical Stack</span>
+        <h2 class="mt-2 text-2xl sm:text-3xl font-bold text-white tracking-tight">Tools I use to build backend systems.</h2>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+
+        <div class="card p-5 rounded-2xl bg-forest-900/80 border border-forest-800" data-aos="fade-up" data-aos-delay="0">
+          <div class="flex items-center gap-3">
+            <i class="fa-brands fa-microsoft text-forest-sage"></i>
+            <h3 class="font-bold text-white">.NET & Backend</h3>
+          </div>
+          <div class="flex flex-wrap gap-2 mt-5">
+            <span class="tech">C#</span>
+            <span class="tech">.NET</span>
+            <span class="tech">ASP.NET Core</span>
+            <span class="tech">Web API</span>
+            <span class="tech">MVC</span>
+            <span class="tech">EF Core</span>
+            <span class="tech">LINQ</span>
+            <span class="tech">ADO.NET</span>
+            <span class="tech">Identity</span>
+            <span class="tech">JWT</span>
+          </div>
+        </div>
+
+        <div class="card p-5 rounded-2xl bg-forest-900/80 border border-forest-800" data-aos="fade-up" data-aos-delay="100">
+          <div class="flex items-center gap-3">
+            <i class="fa-solid fa-layer-group text-forest-sage"></i>
+            <h3 class="font-bold text-white">Architecture</h3>
+          </div>
+          <div class="flex flex-wrap gap-2 mt-5">
+            <span class="tech">Clean Architecture</span>
+            <span class="tech">N-Tier</span>
+            <span class="tech">CQRS</span>
+            <span class="tech">MediatR</span>
+            <span class="tech">SOLID</span>
+            <span class="tech">Design Patterns</span>
+            <span class="tech">Result Pattern</span>
+          </div>
+        </div>
+
+        <div class="card p-5 rounded-2xl bg-forest-900/80 border border-forest-800" data-aos="fade-up" data-aos-delay="200">
+          <div class="flex items-center gap-3">
+            <i class="fa-solid fa-database text-forest-sage"></i>
+            <h3 class="font-bold text-white">Data & APIs</h3>
+          </div>
+          <div class="flex flex-wrap gap-2 mt-5">
+            <span class="tech">SQL Server</span>
+            <span class="tech">PostgreSQL</span>
+            <span class="tech">SQLite</span>
+            <span class="tech">Relational Modeling</span>
+            <span class="tech">REST APIs</span>
+            <span class="tech">Swagger</span>
+            <span class="tech">Postman</span>
+          </div>
+        </div>
+
+        <div class="card p-5 rounded-2xl bg-forest-900/80 border border-forest-800" data-aos="fade-up" data-aos-delay="300">
+          <div class="flex items-center gap-3">
+            <i class="fa-solid fa-screwdriver-wrench text-forest-sage"></i>
+            <h3 class="font-bold text-white">Development</h3>
+          </div>
+          <div class="flex flex-wrap gap-2 mt-5">
+            <span class="tech">Git</span>
+            <span class="tech">GitHub</span>
+            <span class="tech">Docker</span>
+            <span class="tech">Visual Studio</span>
+            <span class="tech">VS Code</span>
+            <span class="tech">Debugging</span>
+            <span class="tech">Testing</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="scroll-mt-24 py-14 sm:py-20" data-aos="fade-up">
+      <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-9">
+        <div>
+          <span class="text-forest-sage text-xs font-mono uppercase tracking-[.2em]">03 · Projects</span>
+          <h2 class="mt-2 text-2xl sm:text-3xl font-bold text-white tracking-tight">Selected projects & systems.</h2>
+          <p class="mt-3 text-sm sm:text-base text-slate-400 max-w-2xl leading-7">
+            A selection of applications where I applied backend development, database design, authentication,
+            architecture, and practical problem-solving.
+          </p>
+        </div>
+
+        <a href="https://github.com/Youssef-Dabash" target="_blank" rel="noopener noreferrer"
+           class="shrink-0 text-sm text-forest-light hover:text-white transition flex items-center gap-2">
+          View all on GitHub <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+
+        <!-- Project 1 -->
+        <article class="card flex flex-col rounded-2xl bg-forest-900/90 border border-forest-800 overflow-hidden" data-aos="fade-up" data-aos-delay="0">
+          <div class="h-1 bg-forest-sage"></div>
+          <div class="p-5 sm:p-6 flex flex-col flex-1">
+            <div class="flex items-center justify-between gap-3">
+              <span class="project-type">E-Commerce API</span>
+              <i class="fa-solid fa-cart-shopping text-slate-600"></i>
+            </div>
+
+            <h3 class="mt-5 text-lg font-bold text-white">E-Commerce & Order Management</h3>
+            <p class="mt-3 text-sm text-slate-400 leading-7 flex-1">
+              Backend system for products, customers, orders, invoices, order states, inventory workflows,
+              authentication, and role-based access.
+            </p>
+
+            <div class="flex flex-wrap gap-2 mt-5">
+              <span class="tech">ASP.NET Core</span>
+              <span class="tech">EF Core</span>
+              <span class="tech">SQL Server</span>
+              <span class="tech">JWT</span>
+              <span class="tech">Clean Architecture</span>
+            </div>
+
+            <a href="https://github.com/Youssef-Dabash" target="_blank" rel="noopener noreferrer"
+               class="mt-6 w-full py-2.5 rounded-xl bg-forest-950 hover:bg-forest-850 text-white text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 border border-forest-800 transition">
+              <i class="fa-brands fa-github"></i> View on GitHub
+            </a>
+          </div>
+        </article>
+
+        <!-- Project 2 -->
+        <article class="card flex flex-col rounded-2xl bg-forest-900/90 border border-forest-800 overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+          <div class="h-1 bg-forest-sage"></div>
+          <div class="p-5 sm:p-6 flex flex-col flex-1">
+            <div class="flex items-center justify-between gap-3">
+              <span class="project-type">Service Platform</span>
+              <i class="fa-solid fa-users text-slate-600"></i>
+            </div>
+
+            <h3 class="mt-5 text-lg font-bold text-white">ServicesHub</h3>
+            <p class="mt-3 text-sm text-slate-400 leading-7 flex-1">
+              Local services platform designed around users, categories, services, requests, ratings,
+              favorites, reports, and trusted-user administration.
+            </p>
+
+            <div class="flex flex-wrap gap-2 mt-5">
+              <span class="tech">ASP.NET Core</span>
+              <span class="tech">Identity</span>
+              <span class="tech">EF Core</span>
+              <span class="tech">CQRS</span>
+              <span class="tech">Clean Architecture</span>
+            </div>
+
+            <a href="https://github.com/Youssef-Dabash" target="_blank" rel="noopener noreferrer"
+               class="mt-6 w-full py-2.5 rounded-xl bg-forest-950 hover:bg-forest-850 text-white text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 border border-forest-800 transition">
+              <i class="fa-brands fa-github"></i> View on GitHub
+            </a>
+          </div>
+        </article>
+
+        <!-- Project 3 -->
+        <article class="card flex flex-col rounded-2xl bg-forest-900/90 border border-forest-800 overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+          <div class="h-1 bg-forest-sage"></div>
+          <div class="p-5 sm:p-6 flex flex-col flex-1">
+            <div class="flex items-center justify-between gap-3">
+              <span class="project-type">Web Application</span>
+              <i class="fa-solid fa-book-open text-slate-600"></i>
+            </div>
+
+            <h3 class="mt-5 text-lg font-bold text-white">Library Management System</h3>
+            <p class="mt-3 text-sm text-slate-400 leading-7 flex-1">
+              ASP.NET Core MVC application for cataloging, members, borrowing workflows, server-side search,
+              pagination, and interactive operations.
+            </p>
+
+            <div class="flex flex-wrap gap-2 mt-5">
+              <span class="tech">ASP.NET MVC</span>
+              <span class="tech">EF Core</span>
+              <span class="tech">SQL Server</span>
+              <span class="tech">AJAX</span>
+              <span class="tech">Repository</span>
+            </div>
+
+            <a href="https://github.com/Youssef-Dabash" target="_blank" rel="noopener noreferrer"
+               class="mt-6 w-full py-2.5 rounded-xl bg-forest-950 hover:bg-forest-850 text-white text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 border border-forest-800 transition">
+              <i class="fa-brands fa-github"></i> View on GitHub
+            </a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- APPROACH -->
+    <section class="py-14 sm:py-20" data-aos="fade-up">
+      <div class="rounded-3xl border border-forest-800 bg-forest-900/70 p-6 sm:p-10 lg:p-12 overflow-hidden relative">
+        <div class="absolute -right-20 -top-20 w-56 h-56 rounded-full bg-forest-sage/5 blur-3xl pointer-events-none"></div>
+
+        <div class="relative max-w-4xl">
+          <span class="text-forest-sage text-xs font-mono uppercase tracking-[.2em]">04 · How I Work</span>
+          <h2 class="mt-2 text-2xl sm:text-3xl font-bold text-white">From requirement to reliable software.</h2>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-9">
+            <div>
+              <span class="text-forest-sage font-mono text-xs">01</span>
+              <h3 class="mt-2 font-bold text-white">Understand</h3>
+              <p class="mt-2 text-xs sm:text-sm text-slate-500 leading-6">Clarify requirements, rules, users, and edge cases.</p>
+            </div>
+            <div>
+              <span class="text-forest-sage font-mono text-xs">02</span>
+              <h3 class="mt-2 font-bold text-white">Design</h3>
+              <p class="mt-2 text-xs sm:text-sm text-slate-500 leading-6">Define responsibilities, data flow, and system boundaries.</p>
+            </div>
+            <div>
+              <span class="text-forest-sage font-mono text-xs">03</span>
+              <h3 class="mt-2 font-bold text-white">Build</h3>
+              <p class="mt-2 text-xs sm:text-sm text-slate-500 leading-6">Implement clean, maintainable, and testable solutions.</p>
+            </div>
+            <div>
+              <span class="text-forest-sage font-mono text-xs">04</span>
+              <h3 class="mt-2 font-bold text-white">Improve</h3>
+              <p class="mt-2 text-xs sm:text-sm text-slate-500 leading-6">Review performance, reliability, security, and maintainability.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="scroll-mt-24 py-14 sm:py-20" data-aos="fade-up">
+      <div class="rounded-3xl bg-forest-900/90 border border-forest-800 p-6 sm:p-10 lg:p-14 text-center relative overflow-hidden">
+        <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-forest-sage/60 to-transparent"></div>
+
+        <span class="text-forest-sage text-xs font-mono uppercase tracking-[.2em]">05 · Contact</span>
+        <h2 class="mt-3 text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
+          Have a project in mind?
+        </h2>
+        <p class="mt-4 max-w-2xl mx-auto text-sm sm:text-base text-slate-400 leading-7">
+          I’m open to backend development opportunities, freelance projects, and collaborations
+          where I can help turn requirements into reliable software.
+        </p>
+
+        <div class="flex flex-wrap items-center justify-center gap-3 mt-8">
+          <a href="mailto:youssefmohammeddabash@gmail.com"
+             class="w-full sm:w-auto px-5 py-3 rounded-xl bg-forest-accent text-white font-semibold hover:bg-forest-sage transition text-sm flex items-center justify-center gap-2 hover:-translate-y-0.5">
+            <i class="fa-solid fa-envelope"></i>
+            Email Me
+          </a>
+
+          <a href="https://github.com/Youssef-Dabash" target="_blank" rel="noopener noreferrer"
+             class="w-full sm:w-auto px-5 py-3 rounded-xl bg-forest-850 border border-forest-800 text-white hover:border-forest-700 transition text-sm flex items-center justify-center gap-2">
+            <i class="fa-brands fa-github"></i>
+            GitHub
+          </a>
+
+          <a href="https://www.linkedin.com/in/youssef-dabash-555162299" target="_blank" rel="noopener noreferrer"
+             class="w-full sm:w-auto px-5 py-3 rounded-xl bg-forest-850 border border-forest-800 text-white hover:border-forest-700 transition text-sm flex items-center justify-center gap-2">
+            <i class="fa-brands fa-linkedin"></i>
+            LinkedIn
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Back to top -->
+  <button id="back-to-top" aria-label="Back to top"
+    class="fixed bottom-6 right-6 z-50 w-11 h-11 rounded-full bg-forest-accent text-white shadow-lg opacity-0 pointer-events-none transition-all duration-300 flex items-center justify-center hover:bg-forest-sage">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <footer class="border-t border-forest-800 py-7 px-4 text-center text-xs text-slate-600 font-mono">
+    © 2026 Youssef Dabash · Built with C#, .NET & a focus on clean engineering.
+  </footer>
+
+  <!-- AOS -->
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 700,
+      once: true,
+      offset: 70,
+      easing: 'ease-out-cubic'
+    });
+
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu  = document.getElementById('mobile-menu');
+    const menuIcon    = document.getElementById('menu-icon');
+
+    menuToggle.addEventListener('click', () => {
+      const willOpen = mobileMenu.classList.contains('hidden');
+      mobileMenu.classList.toggle('hidden');
+      mobileMenu.classList.toggle('flex');
+      menuToggle.setAttribute('aria-expanded', String(willOpen));
+      menuIcon.className = willOpen ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
+    });
+
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        mobileMenu.classList.remove('flex');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuIcon.className = 'fa-solid fa-bars';
+      });
+    });
+
+    // Active nav link highlighting (scroll-based scrollspy)
+    const sections = document.querySelectorAll('main section[id]');
+    const navLinks = document.querySelectorAll('.nav-link, .mobile-link');
+
+    function updateActiveNav() {
+      const scrollPos = window.scrollY + window.innerHeight * 0.35;
+      let currentId = null;
+
+      sections.forEach(section => {
+        if (scrollPos >= section.offsetTop) {
+          currentId = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        const isActive = currentId && link.getAttribute('href') === `#${currentId}`;
+        link.classList.toggle('text-forest-sage', isActive);
+      });
+    }
+
+    window.addEventListener('scroll', updateActiveNav, { passive: true });
+    updateActiveNav();
+
+    // Navbar shadow on scroll
+    const header = document.querySelector('header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('shadow-lg', window.scrollY > 10);
+      header.classList.toggle('shadow-black/30', window.scrollY > 10);
+    });
+
+    // Back to top button
+    const backToTop = document.getElementById('back-to-top');
+    window.addEventListener('scroll', () => {
+      const show = window.scrollY > 500;
+      backToTop.classList.toggle('opacity-0', !show);
+      backToTop.classList.toggle('pointer-events-none', !show);
+    });
+    backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  </script>
+
+</body>
+</html>
