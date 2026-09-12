@@ -1,37 +1,30 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="dark scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Youssef Dabash — .NET Backend Developer building reliable Web Applications and APIs with C# and ASP.NET Core." />
-  <title>Youssef Dabash | .NET</title>
+  <title>Youssef Dabash | .NET </title>
 
-  <!-- Open Graph / Social sharing -->
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Youssef Dabash | .NET Backend Developer" />
-  <meta property="og:description" content="Youssef Dabash — .NET Backend Developer building reliable Web Applications and APIs with C# and ASP.NET Core." />
-  <meta property="og:image" content="https://your-domain.com/profile.jpg" />
-  <meta property="og:url" content="https://your-domain.com" />
-
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Youssef Dabash | .NET Backend Developer" />
-  <meta name="twitter:description" content="Youssef Dabash — .NET Backend Developer building reliable Web Applications and APIs with C# and ASP.NET Core." />
-  <meta name="twitter:image" content="https://your-domain.com/profile.jpg" />
-
-  <link rel="icon" type="image/png" href="favicon.png" />
-
-  <!-- Fonts -->
+  <!-- Favicon for Browser Tabs & Bookmarks -->
+  <link rel="icon" type="image/jpeg" href="images/logo.jpeg" />
+  <link rel="shortcut icon" href="images/logo.jpeg" />
+  <link rel="apple-touch-icon" href="images/logo.jpeg" />
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
-  <!-- Tailwind CSS, FontAwesome & AOS -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- External Stylesheets & Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <link rel="stylesheet" href="css/style.css" />
 
+  <!-- Tailwind CSS Engine with Dark Mode Class Support -->
+  <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
+      darkMode: 'class',
       theme: {
         extend: {
           fontFamily: {
@@ -40,749 +33,979 @@
           },
           colors: {
             forest: {
-              950: '#090d0b',
-              900: '#0f1712',
-              850: '#141e18',
-              800: '#1c2921',
-              700: '#26372d',
+              950: '#070b09',
+              900: '#0d1410',
+              850: '#121b15',
+              800: '#1b2820',
+              700: '#25372c',
               accent: '#2ea043',
               sage: '#3fb950',
-              light: '#86efac'
+              light: '#86efac',
+              border: '#1b2921'
             }
           },
           boxShadow: {
-            glow: '0 0 40px rgba(63,185,80,0.10)',
+            'glow-soft': '0 0 50px 8px rgba(63, 185, 80, 0.18)',
+            'card-hover': '0 18px 40px rgba(0, 0, 0, 0.25)'
           }
         }
       }
     }
   </script>
-
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      min-width: 320px;
-    }
-
-    .bg-matte-grid {
-      background-size: 36px 36px;
-      background-image:
-        linear-gradient(to right, rgba(255,255,255,.018) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(255,255,255,.018) 1px, transparent 1px);
-    }
-
-    .hero-glow {
-      background:
-        radial-gradient(circle at 50% 35%, rgba(63,185,80,.10), transparent 32%),
-        radial-gradient(circle at 85% 65%, rgba(46,160,67,.06), transparent 25%);
-    }
-
-    .gradient-text {
-      background: linear-gradient(90deg, #3fb950, #86efac);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-
-    .card {
-      transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-      border-color: rgba(63,185,80,.45);
-      box-shadow: 0 18px 45px rgba(0,0,0,.20);
-    }
-
-    .terminal-line {
-      animation: terminalPulse 3s ease-in-out infinite;
-    }
-
-    .float-slow {
-      animation: float 5s ease-in-out infinite;
-    }
-
-    .typing-dot {
-      animation: blink 1.4s infinite;
-    }
-
-    .typing-dot:nth-child(2) { animation-delay: .2s; }
-    .typing-dot:nth-child(3) { animation-delay: .4s; }
-
-    @keyframes terminalPulse {
-      0%, 100% { opacity: .75; }
-      50% { opacity: 1; }
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-7px); }
-    }
-
-    @keyframes blink {
-      0%, 80%, 100% { opacity: .25; }
-      40% { opacity: 1; }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        animation-duration: .01ms !important;
-        animation-iteration-count: 1 !important;
-        scroll-behavior: auto !important;
-        transition-duration: .01ms !important;
-      }
-    }
-
-    /* Mobile nav */
-    .mobile-link {
-      display: block;
-      padding: .75rem .6rem;
-      border-radius: .6rem;
-      color: #94a3b8;
-      font-size: .875rem;
-      font-weight: 500;
-      transition: background .2s ease, color .2s ease;
-    }
-
-    .mobile-link:hover {
-      background: #141e18;
-      color: #86efac;
-    }
-
-    #mobile-menu {
-      animation: menuSlide .25s ease-out;
-    }
-
-    @keyframes menuSlide {
-      from { opacity: 0; transform: translateY(-8px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    .tech {
-      display: inline-flex;
-      align-items: center;
-      padding: .3rem .6rem;
-      border-radius: .45rem;
-      background: #090d0b;
-      border: 1px solid #1c2921;
-      color: #aeb8b1;
-      font: 500 .68rem/1.2 "JetBrains Mono", monospace;
-    }
-
-    .project-type {
-      display: inline-flex;
-      align-items: center;
-      padding: .3rem .65rem;
-      border-radius: .45rem;
-      background: #090d0b;
-      border: 1px solid #1c2921;
-      color: #86efac;
-      font: 500 .68rem/1.2 "JetBrains Mono", monospace;
-    }
-  </style>
 </head>
 
-<body class="bg-forest-950 text-slate-300 font-sans selection:bg-forest-accent selection:text-white antialiased overflow-x-hidden bg-matte-grid">
+<body class="bg-slate-50 dark:bg-forest-950 text-slate-700 dark:text-slate-300 font-sans selection:bg-forest-accent selection:text-white min-h-screen bg-tech-grid antialiased overflow-x-hidden transition-colors duration-300">
 
-  <!-- Ambient background -->
-  <div class="fixed inset-0 pointer-events-none -z-10 hero-glow"></div>
-  <div class="fixed top-0 left-[10%] w-72 sm:w-[500px] h-60 sm:h-[300px] bg-forest-accent/5 rounded-full blur-[110px] pointer-events-none -z-10"></div>
-  <div class="fixed bottom-0 right-[5%] w-72 sm:w-[450px] h-60 sm:h-[300px] bg-forest-sage/5 rounded-full blur-[110px] pointer-events-none -z-10"></div>
+  <!-- Ambient Matte Lighting (Dark mode only) -->
+  <div class="hidden dark:block fixed top-0 left-1/4 w-[500px] h-[300px] bg-forest-accent/5 rounded-full blur-[140px] pointer-events-none -z-10"></div>
+  <div class="hidden dark:block fixed bottom-20 right-1/4 w-[450px] h-[300px] bg-forest-sage/5 rounded-full blur-[140px] pointer-events-none -z-10"></div>
 
-  <!-- Navbar -->
-  <header class="sticky top-0 z-50 border-b border-forest-800/80 bg-forest-950/80 backdrop-blur-xl transition-shadow duration-300">
+  <!-- ================================================================= -->
+  <!-- NAVBAR SECTION                                                    -->
+  <!-- ================================================================= -->
+  <header class="sticky top-0 z-50 backdrop-blur-xl bg-white/85 dark:bg-forest-950/85 border-b border-slate-200/80 dark:border-forest-800/80 transition-colors duration-300">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-
-      <a href="#" class="font-bold text-base sm:text-lg tracking-tight text-white flex items-center gap-2">
-        <span class="relative flex h-2.5 w-2.5">
-          <span class="absolute inline-flex h-full w-full rounded-full bg-forest-sage opacity-50 animate-ping"></span>
-          <span class="relative inline-flex h-2.5 w-2.5 rounded-full bg-forest-sage"></span>
-        </span>
-        <span>Youssef <span class="text-forest-sage">Dabash</span></span>
+      
+      <!-- Brand Logo -->
+      <a href="#home" class="font-bold text-lg tracking-tight text-slate-900 dark:text-white flex items-center gap-2 group">
+        <span class="w-2.5 h-2.5 rounded-full bg-forest-sage shadow-sm shadow-forest-sage group-hover:scale-125 transition"></span>
+        <span class="font-mono text-sm tracking-wider">YD<span class="text-forest-sage">.DEV</span></span>
       </a>
 
-      <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-slate-400">
-        <a href="#about" class="nav-link hover:text-forest-sage transition">About</a>
-        <a href="#skills" class="nav-link hover:text-forest-sage transition">Stack</a>
-        <a href="#projects" class="nav-link hover:text-forest-sage transition">Projects</a>
-        <a href="#contact" class="nav-link hover:text-forest-sage transition">Contact</a>
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden lg:flex items-center gap-7 text-xs font-medium text-slate-600 dark:text-slate-400">
+        <a href="#home" class="hover:text-forest-accent dark:hover:text-forest-sage transition flex items-center gap-1.5"><i class="fa-solid fa-house text-[10px]"></i> Home</a>
+        <a href="#about" class="hover:text-forest-accent dark:hover:text-forest-sage transition flex items-center gap-1.5"><i class="fa-solid fa-user text-[10px]"></i> About</a>
+        <a href="#process" class="hover:text-forest-accent dark:hover:text-forest-sage transition flex items-center gap-1.5"><i class="fa-solid fa-diagram-project text-[10px]"></i> Process</a>
+        <a href="#skills" class="hover:text-forest-accent dark:hover:text-forest-sage transition flex items-center gap-1.5"><i class="fa-solid fa-code text-[10px]"></i> Skills</a>
+        <a href="#projects" class="hover:text-forest-accent dark:hover:text-forest-sage transition flex items-center gap-1.5"><i class="fa-solid fa-folder-open text-[10px]"></i> Projects</a>
+        <a href="#certifications" class="hover:text-forest-accent dark:hover:text-forest-sage transition flex items-center gap-1.5"><i class="fa-solid fa-certificate text-[10px]"></i> Certifications</a>
+        <a href="#contact" class="hover:text-forest-accent dark:hover:text-forest-sage transition flex items-center gap-1.5"><i class="fa-solid fa-envelope text-[10px]"></i> Contact</a>
       </nav>
 
+      <!-- Right Action Items (Theme Toggle + CV Download + Mobile Hamburger) -->
       <div class="flex items-center gap-3">
-        <a href="#contact"
-           class="hidden sm:inline-flex px-3.5 sm:px-4 py-2 rounded-xl bg-forest-accent hover:bg-forest-sage text-white text-xs sm:text-sm font-semibold transition hover:-translate-y-0.5">
-          Get in Touch
+        
+        <!-- Theme Toggle Button (Sun / Moon) -->
+        <button onclick="toggleTheme()" id="theme-toggle" type="button" aria-label="Toggle Theme" class="w-10 h-10 rounded-xl border border-slate-200 dark:border-forest-800 bg-slate-100 dark:bg-forest-900 flex items-center justify-center transition hover:border-forest-sage hover:scale-105 cursor-pointer">
+          <i id="theme-icon" class="fa-solid fa-sun text-amber-400 text-sm pointer-events-none"></i>
+        </button>
+        <!-- Download CV Button -->
+        <a href="files/Youssef-Dabash-CV.pdf" download class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-forest-accent hover:bg-forest-sage text-white text-xs font-bold transition shadow-sm hover:-translate-y-0.5">
+          <i class="fa-solid fa-download"></i> Download CV
         </a>
 
-        <button id="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false"
-                class="md:hidden w-10 h-10 rounded-lg border border-forest-800 flex items-center justify-center text-slate-300 hover:text-forest-sage hover:border-forest-700 transition">
+        <!-- Mobile Menu Toggle Button -->
+        <button id="menu-toggle" aria-label="Toggle Navigation" class="lg:hidden w-10 h-10 rounded-xl border border-slate-200 dark:border-forest-800 bg-slate-100 dark:bg-forest-900 flex items-center justify-center text-slate-700 dark:text-slate-300 hover:text-forest-sage transition">
           <i class="fa-solid fa-bars" id="menu-icon"></i>
         </button>
       </div>
+
     </div>
 
-    <nav id="mobile-menu" class="md:hidden hidden flex-col px-4 pb-4 gap-1 border-t border-forest-800/80">
-      <a href="#about" class="mobile-link">About</a>
-      <a href="#skills" class="mobile-link">Stack</a>
-      <a href="#projects" class="mobile-link">Projects</a>
-      <a href="#contact" class="mobile-link">Contact</a>
+    <!-- Mobile Dropdown Navigation -->
+    <nav id="mobile-menu" class="lg:hidden hidden flex-col px-4 pb-4 gap-1 border-t border-slate-200 dark:border-forest-800/80 bg-white dark:bg-forest-950">
+      <a href="#home" class="p-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-forest-900 hover:text-forest-sage text-sm font-medium">Home</a>
+      <a href="#about" class="p-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-forest-900 hover:text-forest-sage text-sm font-medium">About</a>
+      <a href="#process" class="p-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-forest-900 hover:text-forest-sage text-sm font-medium">Process</a>
+      <a href="#skills" class="p-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-forest-900 hover:text-forest-sage text-sm font-medium">Skills</a>
+      <a href="#projects" class="p-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-forest-900 hover:text-forest-sage text-sm font-medium">Projects</a>
+      <a href="#certifications" class="p-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-forest-900 hover:text-forest-sage text-sm font-medium">Certifications</a>
+      <a href="#contact" class="p-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-forest-900 hover:text-forest-sage text-sm font-medium">Contact</a>
+      <a href="files/Youssef-Dabash-CV.pdf" download class="mt-2 text-center p-2.5 rounded-lg bg-forest-accent text-white text-xs font-bold">Download CV</a>
     </nav>
   </header>
 
-  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-24 sm:space-y-32">
 
-    <!-- HERO -->
-    <section class="min-h-[calc(100vh-4rem)] flex items-center py-12 sm:py-16 lg:py-20">
-      <div class="w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
-
-        <!-- Hero copy -->
-        <div class="lg:col-span-7 text-center lg:text-left" data-aos="fade-right" data-aos-duration="800">
-
-          <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-5 mb-7" data-aos="fade-up" data-aos-delay="0">
-            <div class="relative w-24 h-24 sm:w-28 sm:h-28 shrink-0 float-slow">
-              <div class="absolute -inset-1 rounded-full bg-forest-sage/15 blur-md"></div>
-              <img
-                src="profile.jpg"
-                alt="Youssef Dabash"
-                class="relative w-full h-full object-cover rounded-full border-2 border-forest-700 bg-forest-900 shadow-2xl"
-                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-              />
-              <div class="hidden relative w-full h-full rounded-full border-2 border-forest-700 bg-forest-900 items-center justify-center text-2xl font-bold text-forest-sage">
-                YD
-              </div>
-              <span class="absolute bottom-0 right-0 w-4 h-4 rounded-full bg-forest-sage border-[3px] border-forest-950"></span>
-            </div>
-
-            <div class="text-center sm:text-left">
-              <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-forest-800 bg-forest-900/80 text-forest-light text-[11px] sm:text-xs font-mono">
-                <span class="w-1.5 h-1.5 rounded-full bg-forest-sage"></span>
-                .NET Backend Development
-              </div>
-              <p class="mt-2 text-xs text-slate-500 font-mono">
-                Computer Science Graduate · Menoufia University
-              </p>
-            </div>
+    <!-- ================================================================= -->
+    <!-- HERO SECTION                                                      -->
+    <!-- ================================================================= -->
+    <section id="home" class="min-h-[calc(100vh-4rem)] flex items-center py-12 sm:py-16">
+      <div class="w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Left Column: Details -->
+        <div class="lg:col-span-7 text-center lg:text-left space-y-6" data-aos="fade-right" data-aos-duration="800">
+          
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-slate-200 dark:border-forest-800 bg-white dark:bg-forest-900 text-forest-accent dark:text-forest-sage text-xs font-mono shadow-sm">
+            <span class="w-1.5 h-1.5 rounded-full bg-forest-sage animate-pulse"></span> Hello, I'm
           </div>
 
-          <div class="space-y-5" data-aos="fade-up" data-aos-delay="100">
-            <h1>
-              Building reliable
-              <span class="gradient-text block sm:inline"> backend systems</span>
-              <span class="block sm:inline">that solve real problems.</span>
+          <div class="space-y-2">
+            <h1 class="text-4xl sm:text-6xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight">
+              Youssef Dabash
             </h1>
-            <p class="max-w-2xl mx-auto lg:mx-0 text-sm sm:text-base lg:text-lg text-slate-400 leading-8">
-              .NET Backend Developer focused on building maintainable
-              <strong class="text-slate-200">Web Applications and Web APIs</strong>
-              with C# and ASP.NET Core. I care about understanding the business requirements,
-              designing clear system boundaries, and delivering code that is reliable, secure, and easy to evolve.
-            </p>
+            <h2 class="text-xl sm:text-2xl font-bold text-forest-accent dark:text-forest-sage">
+              .NET Backend Developer
+            </h2>
           </div>
 
-          <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3 mt-8" data-aos="fade-up" data-aos-delay="200">
-            <a href="#projects"
-               class="px-5 py-3 rounded-xl bg-forest-accent text-white font-semibold hover:bg-forest-sage transition text-sm flex items-center gap-2 shadow-lg shadow-forest-accent/10 hover:-translate-y-0.5">
-              <i class="fa-solid fa-layer-group"></i>
-              View My Projects
-            </a>
+          <p class="text-slate-600 dark:text-slate-400 text-sm sm:text-base max-w-xl mx-auto lg:mx-0 leading-relaxed">
+            I design and build reliable, maintainable <strong class="text-slate-900 dark:text-slate-200">Web Applications and Web APIs</strong> with C# and ASP.NET Core. I focus on business requirements, decoupled system architecture, database design, and high performance.
+          </p>
 
-            <a href="https://github.com/Youssef-Dabash" target="_blank" rel="noopener noreferrer"
-               class="px-5 py-3 rounded-xl bg-forest-900/80 border border-forest-800 text-slate-200 font-semibold hover:border-forest-700 hover:bg-forest-850 transition text-sm flex items-center gap-2 hover:-translate-y-0.5">
-              <i class="fa-brands fa-github"></i>
-              GitHub
-            </a>
+          <!-- Core Skills Badges -->
+          <div class="flex flex-wrap items-center justify-center lg:justify-start gap-2 pt-1">
+            <span class="px-3 py-1 rounded-lg bg-white dark:bg-forest-900 border border-slate-200 dark:border-forest-800 text-xs font-mono text-slate-700 dark:text-slate-300 shadow-sm">C# / .NET</span>
+            <span class="px-3 py-1 rounded-lg bg-white dark:bg-forest-900 border border-slate-200 dark:border-forest-800 text-xs font-mono text-slate-700 dark:text-slate-300 shadow-sm">ASP.NET Core Web API</span>
+            <span class="px-3 py-1 rounded-lg bg-white dark:bg-forest-900 border border-slate-200 dark:border-forest-800 text-xs font-mono text-slate-700 dark:text-slate-300 shadow-sm">Clean Architecture</span>
+            <span class="px-3 py-1 rounded-lg bg-white dark:bg-forest-900 border border-slate-200 dark:border-forest-800 text-xs font-mono text-slate-700 dark:text-slate-300 shadow-sm">SQL Server</span>
+          </div>
 
-            <!-- Replace # with your portfolio URL -->
-            <a href="#"
-               class="px-5 py-3 rounded-xl border border-forest-800/80 text-slate-400 hover:text-white hover:border-forest-700 transition text-sm flex items-center gap-2">
-              <i class="fa-solid fa-arrow-up-right-from-square"></i>
-              Portfolio
+          <!-- Hero Action Buttons -->
+          <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3 pt-2">
+            <a href="files/Youssef-Dabash-CV.pdf" download class="px-5 py-3 rounded-xl bg-forest-accent hover:bg-forest-sage text-white font-semibold transition text-xs sm:text-sm flex items-center gap-2 shadow-lg shadow-forest-accent/15 hover:-translate-y-0.5">
+              <i class="fa-solid fa-download"></i> Download CV
+            </a>
+            <a href="#contact" class="px-5 py-3 rounded-xl bg-white dark:bg-forest-900 border border-slate-200 dark:border-forest-800 text-slate-800 dark:text-slate-200 font-semibold hover:border-forest-sage transition text-xs sm:text-sm flex items-center gap-2 hover:-translate-y-0.5 shadow-sm">
+              Contact Me
+            </a>
+            <a href="#projects" class="px-5 py-3 rounded-xl bg-white dark:bg-forest-900 border border-slate-200 dark:border-forest-800 text-slate-800 dark:text-slate-200 font-semibold hover:border-forest-sage transition text-xs sm:text-sm flex items-center gap-2 hover:-translate-y-0.5 shadow-sm">
+              View Projects
             </a>
           </div>
 
-          <div class="mt-8 flex flex-wrap justify-center lg:justify-start gap-x-5 gap-y-2 text-xs text-slate-500 font-mono" data-aos="fade-up" data-aos-delay="300">
-            <span><i class="fa-solid fa-check text-forest-sage mr-1"></i>Clean Code</span>
-            <span><i class="fa-solid fa-check text-forest-sage mr-1"></i>API Design</span>
-            <span><i class="fa-solid fa-check text-forest-sage mr-1"></i>Database Design</span>
-            <span><i class="fa-solid fa-check text-forest-sage mr-1"></i>Problem Solving</span>
+          <!-- Social Links Bar -->
+          <div class="flex items-center justify-center lg:justify-start gap-3 pt-4 text-slate-500 dark:text-slate-400">
+            <a href="https://github.com/Youssef-Dabash" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-xl bg-white dark:bg-forest-900 border border-slate-200 dark:border-forest-800 flex items-center justify-center hover:text-forest-sage hover:border-forest-sage transition shadow-sm" title="GitHub">
+              <i class="fa-brands fa-github text-base"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/youssef-m-dabash-555162299" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-xl bg-white dark:bg-forest-900 border border-slate-200 dark:border-forest-800 flex items-center justify-center hover:text-forest-sage hover:border-forest-sage transition shadow-sm" title="LinkedIn">
+              <i class="fa-brands fa-linkedin text-base"></i>
+            </a>
+            <a href="https://leetcode.com/u/Ymuhammed" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-xl bg-white dark:bg-forest-900 border border-slate-200 dark:border-forest-800 flex items-center justify-center hover:text-amber-500 hover:border-amber-400 transition shadow-sm" title="LeetCode">
+              <i class="fa-solid fa-code text-base"></i>
+            </a>
+            <a href="https://wa.me/+201203755577" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-xl bg-white dark:bg-forest-900 border border-slate-200 dark:border-forest-800 flex items-center justify-center hover:text-forest-sage hover:border-forest-sage transition shadow-sm" title="WhatsApp">
+              <i class="fa-brands fa-whatsapp text-base"></i>
+            </a>
+            <a href="mailto:youssefmohammeddabash@gmail.com" class="w-10 h-10 rounded-xl bg-white dark:bg-forest-900 border border-slate-200 dark:border-forest-800 flex items-center justify-center hover:text-forest-sage hover:border-forest-sage transition shadow-sm" title="Email">
+              <i class="fa-solid fa-envelope text-base"></i>
+            </a>
+          </div>
+
+        </div>
+
+        <!-- Right Column: Profile Picture -->
+        <div class="lg:col-span-5 flex justify-center" data-aos="fade-left" data-aos-duration="800">
+          <div class="relative w-64 h-64 sm:w-80 sm:h-80 rounded-full p-1.5 shadow-glow-soft">
+            <div class="absolute -inset-2 rounded-full bg-forest-sage/20 blur-xl"></div>
+            <img 
+              src="images/profile.jpg" 
+              alt="Youssef Dabash" 
+              class="relative w-full h-full object-cover rounded-full border-2 border-slate-200 dark:border-forest-700 bg-white dark:bg-forest-900 shadow-lg"
+              onerror="this.src='https://via.placeholder.com/350?text=Youssef+Dabash'"
+            />
+            <span class="absolute bottom-4 right-4 w-6 h-6 rounded-full bg-forest-sage border-4 border-white dark:border-forest-950 shadow-md" title="Available for backend roles"></span>
           </div>
         </div>
 
-        <!-- Terminal -->
-   <div class="lg:col-span-5 w-full" data-aos="fade-left" data-aos-duration="800">
-        <div class="rounded-2xl bg-forest-900/90 border border-forest-800 overflow-hidden shadow-2xl shadow-black/50">
+      </div>
+    </section>
 
-          <!-- Editor Header Tab -->
-          <div class="px-4 py-3 bg-forest-850/90 border-b border-forest-800 flex items-center justify-between gap-3">
-            <div class="flex items-center gap-1.5">
-              <span class="w-2.5 h-2.5 rounded-full bg-rose-500/70"></span>
-              <span class="w-2.5 h-2.5 rounded-full bg-amber-500/70"></span>
-              <span class="w-2.5 h-2.5 rounded-full bg-forest-sage/70"></span>
+    <!-- ================================================================= -->
+    <!-- ABOUT ME SECTION                                                  -->
+    <!-- ================================================================= -->
+    <section id="about" class="scroll-mt-20 space-y-10" data-aos="fade-up">
+      <div class="text-center max-w-2xl mx-auto space-y-2">
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">About Me</h2>
+        <div class="w-16 h-1 bg-forest-sage mx-auto rounded-full"></div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        
+        <!-- Left Column: Biography Narrative -->
+        <div class="lg:col-span-7 space-y-5">
+          <div class="inline-block px-3 py-1 rounded-full bg-white dark:bg-forest-900 border border-slate-200 dark:border-forest-800 text-forest-accent dark:text-forest-sage text-xs font-mono shadow-sm">
+            .NET Backend Developer
+          </div>
+          
+          <p class="text-sm sm:text-base text-slate-700 dark:text-slate-300 leading-relaxed">
+            I'm a <strong class="text-slate-900 dark:text-white">.NET Backend Developer</strong> focused on building reliable and maintainable Web Applications and Web APIs using C# and modern .NET technologies. I enjoy turning requirements into practical software solutions and paying attention to the details that make a system reliable and easy to evolve.
+          </p>
+
+          <p class="text-sm sm:text-base text-slate-600 dark:text-slate-400 leading-relaxed">
+            My approach to development is centered around clean code, solid architecture, performance, security, and understanding the problem before writing the solution. I'm continuously improving my skills through hands-on development, freelance work, and building real-world applications.
+          </p>
+
+          <p class="text-sm sm:text-base text-slate-600 dark:text-slate-400 leading-relaxed">
+            I also enjoy understanding how things work <strong class="text-slate-900 dark:text-slate-200">under the hood</strong>, solving technical challenges, and exploring modern patterns for microservices and AI-driven API pipelines.
+          </p>
+
+          <div class="pt-2">
+            <a href="#contact" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-forest-accent hover:bg-forest-sage text-white text-xs sm:text-sm font-semibold transition shadow-sm">
+              Let's Start <i class="fa-solid fa-arrow-right text-xs"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Column: Context & Education Cards -->
+        <div class="lg:col-span-5 space-y-4">
+          
+          <!-- Education -->
+          <div class="p-6 rounded-2xl bg-white dark:bg-forest-900/90 border border-slate-200 dark:border-forest-800 card-transition hover:border-forest-sage/60 shadow-sm">
+            <div class="flex items-center gap-3 text-forest-accent dark:text-forest-sage mb-2">
+              <i class="fa-solid fa-graduation-cap text-lg"></i>
+              <h3 class="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider">Education</h3>
             </div>
-            <div class="flex items-center gap-1.5 text-[10px] sm:text-xs font-mono text-slate-400 truncate">
-              <i class="fa-brands fa-microsoft text-forest-sage text-[11px]"></i>
-              <span>CreateOrderHandler.cs</span>
+            <p class="font-bold text-slate-900 dark:text-white text-base">B.Sc. in Computer Science</p>
+            <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1">Faculty of Science — Menoufia University</p>
+            <span class="inline-block mt-3 px-2.5 py-1 rounded bg-slate-100 dark:bg-forest-950 border border-slate-200 dark:border-forest-800 text-[11px] font-mono text-forest-accent dark:text-forest-light">
+              2022 — 2026
+            </span>
+          </div>
+
+          <!-- Freelance Experience -->
+          <div class="p-6 rounded-2xl bg-white dark:bg-forest-900/90 border border-slate-200 dark:border-forest-800 card-transition hover:border-forest-sage/60 shadow-sm">
+            <div class="flex items-center gap-3 text-forest-accent dark:text-forest-sage mb-2">
+              <i class="fa-solid fa-briefcase text-lg"></i>
+              <h3 class="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider">Freelance Development</h3>
+            </div>
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+              Delivering clean, decoupled backend systems, database schemas, and API contracts for clients and startups with clear communication.
+            </p>
+          </div>
+
+          <!-- CS Foundations -->
+          <div class="p-6 rounded-2xl bg-white dark:bg-forest-900/90 border border-slate-200 dark:border-forest-800 card-transition hover:border-forest-sage/60 shadow-sm">
+            <div class="flex items-center gap-3 text-forest-accent dark:text-forest-sage mb-2">
+              <i class="fa-solid fa-brain text-lg"></i>
+              <h3 class="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider">CS Foundations</h3>
+            </div>
+            <div class="flex flex-wrap gap-1.5 pt-1">
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-100 dark:bg-forest-950 text-slate-700 dark:text-slate-300">Data Structures</span>
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-100 dark:bg-forest-950 text-slate-700 dark:text-slate-300">Algorithms</span>
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-100 dark:bg-forest-950 text-slate-700 dark:text-slate-300">OOP</span>
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-100 dark:bg-forest-950 text-slate-700 dark:text-slate-300">OS</span>
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-100 dark:bg-forest-950 text-slate-700 dark:text-slate-300">Networks</span>
             </div>
           </div>
 
-          <!-- Code Body -->
-          <div class="p-4 sm:p-5 font-mono text-[11px] sm:text-xs leading-6">
-            <p class="text-slate-500">// CQRS Command Handler with Domain Validation</p>
-            
-            <div class="mt-2.5 rounded-xl bg-forest-950 border border-forest-800 p-4 overflow-x-auto text-slate-200">
-              <p>
-                <span class="text-emerald-400">public async</span> 
-                <span class="text-teal-300">Task</span>&lt;<span class="text-teal-300">Result</span>&lt;<span class="text-emerald-400">Guid</span>&gt;&gt; 
-                <span class="text-sky-300">Handle</span>(
-              </p>
-              <p class="pl-4">
-                <span class="text-amber-200">CreateOrderCommand</span> cmd, 
-                <span class="text-teal-300">CancellationToken</span> ct)
-              </p>
-              <p class="pl-4">{</p>
-              
-              <p class="pl-8 text-slate-500">// 1. Domain validation & entity creation</p>
-              <p class="pl-8">
-                <span class="text-emerald-400">var</span> order = 
-                <span class="text-amber-200">Order</span>.<span class="text-sky-300">Create</span>(cmd.CustomerId, cmd.Items);
-              </p>
-              
-              <p class="pl-8 text-slate-500 mt-2">// 2. Transactional persistence</p>
-              <p class="pl-8">
-                <span class="text-emerald-400">await</span> _orderRepository.<span class="text-sky-300">AddAsync</span>(order, ct);
-              </p>
-              <p class="pl-8">
-                <span class="text-emerald-400">await</span> _unitOfWork.<span class="text-sky-300">SaveChangesAsync</span>(ct);
-              </p>
-              
-              <p class="pl-8 text-slate-500 mt-2">// 3. Type-safe Result response</p>
-              <p class="pl-8">
-                <span class="text-emerald-400">return</span> 
-                <span class="text-teal-300">Result</span>.<span class="text-sky-300">Success</span>(order.Id);
-              </p>
-              
-              <p class="pl-4">}</p>
-            </div>
+        </div>
 
-            <!-- Footer Status Bar -->
-            <div class="mt-4 flex flex-wrap items-center justify-between gap-2 text-[11px] font-mono border-t border-forest-800/80 pt-3">
-              <div class="flex items-center gap-2 text-forest-sage">
-                <i class="fa-solid fa-circle-check text-xs"></i>
-                <span>Build succeeded</span>
+      </div>
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- PROCESS SECTION (Vertical Connected Timeline)                     -->
+    <!-- ================================================================= -->
+    <section id="process" class="scroll-mt-20 space-y-12" data-aos="fade-up">
+      <div class="text-center max-w-2xl mx-auto space-y-2">
+        <span class="text-forest-accent dark:text-forest-sage text-xs font-mono uppercase tracking-[.25em]">My Process</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">How I Work</h2>
+        <div class="w-16 h-1 bg-forest-sage mx-auto rounded-full"></div>
+      </div>
+
+      <div class="max-w-3xl mx-auto relative timeline-line space-y-8 pl-4 sm:pl-6">
+
+        <!-- Step 01 -->
+        <div class="relative flex items-start gap-6 group" data-aos="fade-up" data-aos-delay="0">
+          <div class="w-11 h-11 rounded-full bg-white dark:bg-forest-900 border-2 border-forest-sage text-forest-accent dark:text-forest-sage font-mono font-bold text-sm flex items-center justify-center shrink-0 z-10 shadow-md">
+            01
+          </div>
+          <div class="p-6 rounded-2xl bg-white dark:bg-forest-900/90 border border-slate-200 dark:border-forest-800 card-transition hover:border-forest-sage/60 shadow-sm flex-1">
+            <h3 class="text-lg font-bold text-slate-900 dark:text-white">Understand</h3>
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-2 leading-relaxed">
+              Understand the core problem, business rules, client requirements, and technical constraints before writing a single line of code.
+            </p>
+          </div>
+        </div>
+
+        <!-- Step 02 -->
+        <div class="relative flex items-start gap-6 group" data-aos="fade-up" data-aos-delay="100">
+          <div class="w-11 h-11 rounded-full bg-white dark:bg-forest-900 border-2 border-forest-sage text-forest-accent dark:text-forest-sage font-mono font-bold text-sm flex items-center justify-center shrink-0 z-10 shadow-md">
+            02
+          </div>
+          <div class="p-6 rounded-2xl bg-white dark:bg-forest-900/90 border border-slate-200 dark:border-forest-800 card-transition hover:border-forest-sage/60 shadow-sm flex-1">
+            <h3 class="text-lg font-bold text-slate-900 dark:text-white">Design</h3>
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-2 leading-relaxed">
+              Plan decoupled architecture boundaries, relational schemas, CQRS separation, data flow, and OpenAPI/Swagger contract definitions.
+            </p>
+          </div>
+        </div>
+
+        <!-- Step 03 -->
+        <div class="relative flex items-start gap-6 group" data-aos="fade-up" data-aos-delay="200">
+          <div class="w-11 h-11 rounded-full bg-white dark:bg-forest-900 border-2 border-forest-sage text-forest-accent dark:text-forest-sage font-mono font-bold text-sm flex items-center justify-center shrink-0 z-10 shadow-md">
+            03
+          </div>
+          <div class="p-6 rounded-2xl bg-white dark:bg-forest-900/90 border border-slate-200 dark:border-forest-800 card-transition hover:border-forest-sage/60 shadow-sm flex-1">
+            <h3 class="text-lg font-bold text-slate-900 dark:text-white">Build</h3>
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-2 leading-relaxed">
+              Implement scalable, maintainable C# solutions adhering to SOLID principles, Design Patterns, Entity Framework Core, and Clean Architecture.
+            </p>
+          </div>
+        </div>
+
+        <!-- Step 04 -->
+        <div class="relative flex items-start gap-6 group" data-aos="fade-up" data-aos-delay="300">
+          <div class="w-11 h-11 rounded-full bg-white dark:bg-forest-900 border-2 border-forest-sage text-forest-accent dark:text-forest-sage font-mono font-bold text-sm flex items-center justify-center shrink-0 z-10 shadow-md">
+            04
+          </div>
+          <div class="p-6 rounded-2xl bg-white dark:bg-forest-900/90 border border-slate-200 dark:border-forest-800 card-transition hover:border-forest-sage/60 shadow-sm flex-1">
+            <h3 class="text-lg font-bold text-slate-900 dark:text-white">Test</h3>
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-2 leading-relaxed">
+              Validate business logic with unit testing, integration tests, contract assertions, and boundary error handling.
+            </p>
+          </div>
+        </div>
+
+        <!-- Step 05 -->
+        <div class="relative flex items-start gap-6 group" data-aos="fade-up" data-aos-delay="400">
+          <div class="w-11 h-11 rounded-full bg-white dark:bg-forest-900 border-2 border-forest-sage text-forest-accent dark:text-forest-sage font-mono font-bold text-sm flex items-center justify-center shrink-0 z-10 shadow-md">
+            05
+          </div>
+          <div class="p-6 rounded-2xl bg-white dark:bg-forest-900/90 border border-slate-200 dark:border-forest-800 card-transition hover:border-forest-sage/60 shadow-sm flex-1">
+            <h3 class="text-lg font-bold text-slate-900 dark:text-white">Improve</h3>
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-2 leading-relaxed">
+              Analyze execution plans, query indexing, cache layers, security audits, rate limiting, and continuous performance optimization.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- TECHNICAL SKILLS SECTION                                          -->
+    <!-- ================================================================= -->
+    <section id="skills" class="scroll-mt-20 space-y-10" data-aos="fade-up">
+      <div class="text-center max-w-2xl mx-auto space-y-2">
+        <span class="text-forest-accent dark:text-forest-sage text-xs font-mono uppercase tracking-[.25em]">What I Bring</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">Technical Skills</h2>
+        <div class="w-16 h-1 bg-forest-sage mx-auto rounded-full"></div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+        <!-- Category 1 -->
+        <div class="p-6 rounded-2xl bg-white dark:bg-forest-900/90 border border-slate-200 dark:border-forest-800 card-transition hover:border-forest-sage/60 shadow-sm space-y-4">
+          <div class="flex items-center gap-3 text-forest-accent dark:text-forest-sage">
+            <i class="fa-brands fa-microsoft text-xl"></i>
+            <h3 class="font-bold text-slate-900 dark:text-white text-base">Backend & .NET</h3>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-forest-950 border border-slate-200 dark:border-forest-800 text-xs font-mono text-slate-700 dark:text-slate-300">C#</span>
+            <span class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-forest-950 border border-slate-200 dark:border-forest-800 text-xs font-mono text-slate-700 dark:text-slate-300">.NET Core</span>
+            <span class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-forest-950 border border-slate-200 dark:border-forest-800 text-xs font-mono text-slate-700 dark:text-slate-300">ASP.NET Core Web API</span>
+            <span class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-forest-950 border border-slate-200 dark:border-forest-800 text-xs font-mono text-slate-700 dark:text-slate-300">ASP.NET MVC</span>
+            <span class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-forest-950 border border-slate-200 dark:border-forest-800 text-xs font-mono text-slate-700 dark:text-slate-300">Entity Framework Core</span>
+            <span class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-forest-950 border border-slate-200 dark:border-forest-800 text-xs font-mono text-slate-700 dark:text-slate-300">LINQ & ADO.NET</span>
+            <span class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-forest-950 border border-slate-200 dark:border-forest-800 text-xs font-mono text-slate-700 dark:text-slate-300">JWT & Identity</span>
+          </div>
+        </div>
+
+        <!-- Category 2 -->
+        <div class="p-6 rounded-2xl bg-white dark:bg-forest-900/90 border border-slate-200 dark:border-forest-800 card-transition hover:border-forest-sage/60 shadow-sm space-y-4">
+          <div class="flex items-center gap-3 text-forest-accent dark:text-forest-sage">
+            <i class="fa-solid fa-cubes text-xl"></i>
+            <h3 class="font-bold text-slate-900 dark:text-white text-base">Architecture</h3>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-forest-950 border border-slate-200 dark:border-forest-800 text-xs font-mono text-slate-700 dark:text-slate-300">Clean Architecture</span>
+            <span class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-forest-950 border border-slate-200 dark:border-forest-800 text-xs font-mono text-slate-700 dark:text-slate-300">CQRS & MediatR</span>
+            <span class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-forest-950 border border-slate-200 dark:border-forest-800 text-xs font-mono text-slate-700 dark:text-slate-300">Design Pattern</span>
+            <span class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-forest-950 border border-slate-200 dark:border-forest-800 text-xs font-mono text-slate-700 dark:text-slate-300">SOLID Principles</span>
+            <span class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-forest-950 border border-slate-200 dark:border-forest-800 text-xs font-mono text-slate-700 dark:text-slate-300">Domain-Driven Design</span>
+            <span class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-forest-950 border border-slate-200 dark:border-forest-800 text-xs font-mono text-slate-700 dark:text-slate-300">RESTful API Design</span>
+          </div>
+        </div>
+
+        <!-- Category 3 -->
+        <div class="p-6 rounded-2xl bg-white dark:bg-forest-900/90 border border-slate-200 dark:border-forest-800 card-transition hover:border-forest-sage/60 shadow-sm space-y-4">
+          <div class="flex items-center gap-3 text-forest-accent dark:text-forest-sage">
+            <i class="fa-solid fa-database text-xl"></i>
+            <h3 class="font-bold text-slate-900 dark:text-white text-base">Databases</h3>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-forest-950 border border-slate-200 dark:border-forest-800 text-xs font-mono text-slate-700 dark:text-slate-300">Microsoft SQL Server</span>
+            <span class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-forest-950 border border-slate-200 dark:border-forest-800 text-xs font-mono text-slate-700 dark:text-slate-300">PostgreSQL</span>
+            <span class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-forest-950 border border-slate-200 dark:border-forest-800 text-xs font-mono text-slate-700 dark:text-slate-300">SQLite</span>
+            <span class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-forest-950 border border-slate-200 dark:border-forest-800 text-xs font-mono text-slate-700 dark:text-slate-300">Relational Modeling</span>
+            <span class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-forest-950 border border-slate-200 dark:border-forest-800 text-xs font-mono text-slate-700 dark:text-slate-300">DBML Schemas</span>
+            <span class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-forest-950 border border-slate-200 dark:border-forest-800 text-xs font-mono text-slate-700 dark:text-slate-300">Indexing & Optimization</span>
+          </div>
+        </div>
+
+        <!-- Category 4 -->
+        <div class="p-6 rounded-2xl bg-white dark:bg-forest-900/90 border border-slate-200 dark:border-forest-800 card-transition hover:border-forest-sage/60 shadow-sm space-y-4">
+          <div class="flex items-center gap-3 text-forest-accent dark:text-forest-sage">
+            <i class="fa-solid fa-toolbox text-xl"></i>
+            <h3 class="font-bold text-slate-900 dark:text-white text-base">Tools</h3>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-forest-950 border border-slate-200 dark:border-forest-800 text-xs font-mono text-slate-700 dark:text-slate-300">Git & GitHub</span>
+            <span class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-forest-950 border border-slate-200 dark:border-forest-800 text-xs font-mono text-slate-700 dark:text-slate-300">Postman</span>
+            <span class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-forest-950 border border-slate-200 dark:border-forest-800 text-xs font-mono text-slate-700 dark:text-slate-300">Swagger & Scalar</span>
+            <span class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-forest-950 border border-slate-200 dark:border-forest-800 text-xs font-mono text-slate-700 dark:text-slate-300">Docker</span>
+            <span class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-forest-950 border border-slate-200 dark:border-forest-800 text-xs font-mono text-slate-700 dark:text-slate-300">Visual Studio</span>
+            <span class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-forest-950 border border-slate-200 dark:border-forest-800 text-xs font-mono text-slate-700 dark:text-slate-300">VS Code</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- PROJECTS SECTION (Mac Mockup Browser Cards)                       -->
+    <!-- ================================================================= -->
+    <!-- ================================================================= -->
+    <!-- PROJECTS SECTION (Mac Mockup Browser Cards)                       -->
+    <!-- ================================================================= -->
+    <section id="projects" class="scroll-mt-20 space-y-10" data-aos="fade-up">
+      <div class="text-center max-w-2xl mx-auto space-y-2">
+        <span class="text-forest-accent dark:text-forest-sage text-xs font-mono uppercase tracking-[.25em]">My Portfolio</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">Projects & Systems</h2>
+        <div class="w-16 h-1 bg-forest-sage mx-auto rounded-full"></div>
+        <p class="text-slate-600 dark:text-slate-400 text-xs sm:text-sm mt-3">
+          A showcase of backend systems, microservices concepts, Web APIs, and desktop applications I engineered.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- Project 1: Market System Demo (Enterprise Flagship) -->
+        <article class="rounded-2xl bg-white dark:bg-forest-900 border border-slate-200 dark:border-forest-800 overflow-hidden card-transition hover:border-forest-sage/60 shadow-sm flex flex-col justify-between" data-aos="fade-up" data-aos-delay="0">
+          <div>
+            <div class="px-4 py-3 bg-slate-100 dark:bg-forest-850 border-b border-slate-200 dark:border-forest-800 flex items-center justify-between">
+              <div class="flex items-center gap-1.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-rose-500/70"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-amber-500/70"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-forest-sage/70"></span>
               </div>
-              <span class="text-slate-500 text-[10px] sm:text-xs">CQRS · MediatR · Result Pattern</span>
+              <span class="text-[11px] font-mono text-slate-500 truncate">api.marketsystem.internal/graphql</span>
             </div>
 
+            <div class="p-6 space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-mono px-2.5 py-0.5 rounded bg-slate-100 dark:bg-forest-950 border border-slate-200 dark:border-forest-800 text-forest-accent dark:text-forest-sage font-bold">Enterprise DDD & Event-Driven</span>
+                <i class="fa-solid fa-cubes text-slate-400 dark:text-slate-600"></i>
+              </div>
+              <h3 class="text-lg font-bold text-slate-900 dark:text-white">Market System</h3>
+              <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                Multi-domain enterprise retail solution built with Clean Architecture, DDD, and CQRS across 6 autonomous bounded contexts. Features event-driven messaging with Wolverine, GraphQL via Hot Chocolate, and transactional outbox persistence.
+              </p>
+              <div class="flex flex-wrap gap-1.5 pt-2">
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 dark:bg-forest-950 text-forest-accent dark:text-forest-light">.NET 10</span>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 dark:bg-forest-950 text-forest-accent dark:text-forest-light">Clean Architecture</span>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 dark:bg-forest-950 text-forest-accent dark:text-forest-light">DDD & CQRS</span>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 dark:bg-forest-950 text-forest-accent dark:text-forest-light">Wolverine</span>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 dark:bg-forest-950 text-forest-accent dark:text-forest-light">GraphQL</span>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 dark:bg-forest-950 text-forest-accent dark:text-forest-light">SQL Server</span>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
+
+          <div class="p-6 pt-0">
+            <a href="https://github.com/CodexaorgRMS/RMS" target="_blank" rel="noopener noreferrer" class="w-full py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-forest-950 dark:hover:bg-forest-850 text-slate-800 dark:text-white text-xs font-semibold flex items-center justify-center gap-2 border border-slate-200 dark:border-forest-800 hover:border-forest-sage transition">
+              <i class="fa-brands fa-github text-sm"></i> View on GitHub
+            </a>
+          </div>
+        </article>
+
+        <!-- Project 2: HerbexCare.ai (Graduation Project) -->
+        <article class="rounded-2xl bg-white dark:bg-forest-900 border border-slate-200 dark:border-forest-800 overflow-hidden card-transition hover:border-forest-sage/60 shadow-sm flex flex-col justify-between" data-aos="fade-up" data-aos-delay="100">
+          <div>
+            <div class="px-4 py-3 bg-slate-100 dark:bg-forest-850 border-b border-slate-200 dark:border-forest-800 flex items-center justify-between">
+              <div class="flex items-center gap-1.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-rose-500/70"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-amber-500/70"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-forest-sage/70"></span>
+              </div>
+              <span class="text-[11px] font-mono text-slate-500 truncate">api.herbexcare.ai/swagger</span>
+            </div>
+
+            <div class="p-6 space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-mono px-2.5 py-0.5 rounded bg-slate-100 dark:bg-forest-950 border border-slate-200 dark:border-forest-800 text-forest-accent dark:text-forest-sage font-bold">Graduation Project · AI Platform</span>
+                <i class="fa-solid fa-leaf text-slate-400 dark:text-slate-600"></i>
+              </div>
+              <h3 class="text-lg font-bold text-slate-900 dark:text-white">HerbexCare.ai Backend</h3>
+              <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                Scalable multi-tenant backend architecture for herbal medicine and AI-generated treatments. Built using Unit of Work, Repository Pattern, and complex relational schemas, deployed on Azure App Services (Linux).
+              </p>
+              <div class="flex flex-wrap gap-1.5 pt-2">
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 dark:bg-forest-950 text-forest-accent dark:text-forest-light">ASP.NET Core API</span>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 dark:bg-forest-950 text-forest-accent dark:text-forest-light">Multi-Tenant</span>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 dark:bg-forest-950 text-forest-accent dark:text-forest-light">EF Core</span>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 dark:bg-forest-950 text-forest-accent dark:text-forest-light">Azure App Services</span>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 dark:bg-forest-950 text-forest-accent dark:text-forest-light">AI Integration</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-6 pt-0">
+            <a href="https://github.com/Herbal-Organization/PhytoIntellect-System" target="_blank" rel="noopener noreferrer" class="w-full py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-forest-950 dark:hover:bg-forest-850 text-slate-800 dark:text-white text-xs font-semibold flex items-center justify-center gap-2 border border-slate-200 dark:border-forest-800 hover:border-forest-sage transition">
+              <i class="fa-brands fa-github text-sm"></i> View on GitHub
+            </a>
+          </div>
+        </article>
+
+        <!-- Project 3: Survey Basket (Production API) -->
+        <article class="rounded-2xl bg-white dark:bg-forest-900 border border-slate-200 dark:border-forest-800 overflow-hidden card-transition hover:border-forest-sage/60 shadow-sm flex flex-col justify-between" data-aos="fade-up" data-aos-delay="200">
+          <div>
+            <div class="px-4 py-3 bg-slate-100 dark:bg-forest-850 border-b border-slate-200 dark:border-forest-800 flex items-center justify-between">
+              <div class="flex items-center gap-1.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-rose-500/70"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-amber-500/70"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-forest-sage/70"></span>
+              </div>
+              <span class="text-[11px] font-mono text-slate-500 truncate">api.surveybasket.internal/swagger</span>
+            </div>
+
+            <div class="p-6 space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-mono px-2.5 py-0.5 rounded bg-slate-100 dark:bg-forest-950 border border-slate-200 dark:border-forest-800 text-forest-accent dark:text-forest-sage font-bold">Production RESTful API</span>
+                <i class="fa-solid fa-square-poll-vertical text-slate-400 dark:text-slate-600"></i>
+              </div>
+              <h3 class="text-lg font-bold text-slate-900 dark:text-white">Survey Basket API</h3>
+              <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                Dynamic polling RESTful API enforcing RBAC. Integrates Hangfire for asynchronous background processing, Serilog structured audit trails, API Versioning, Rate Limiting, Caching, and RFC 7807 Problem Details error handling.
+              </p>
+              <div class="flex flex-wrap gap-1.5 pt-2">
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 dark:bg-forest-950 text-forest-accent dark:text-forest-light">ASP.NET Core Web API</span>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 dark:bg-forest-950 text-forest-accent dark:text-forest-light">Hangfire</span>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 dark:bg-forest-950 text-forest-accent dark:text-forest-light">Rate Limiting & Caching</span>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 dark:bg-forest-950 text-forest-accent dark:text-forest-light">Serilog</span>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 dark:bg-forest-950 text-forest-accent dark:text-forest-light">Health Checks</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-6 pt-0">
+            <a href="https://github.com/Youssef-Dabash/Survey-Basket" target="_blank" rel="noopener noreferrer" class="w-full py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-forest-950 dark:hover:bg-forest-850 text-slate-800 dark:text-white text-xs font-semibold flex items-center justify-center gap-2 border border-slate-200 dark:border-forest-800 hover:border-forest-sage transition">
+              <i class="fa-brands fa-github text-sm"></i> View on GitHub
+            </a>
+          </div>
+        </article>
+
+        <!-- Project 4: Order Management System (Web API) -->
+        <article class="rounded-2xl bg-white dark:bg-forest-900 border border-slate-200 dark:border-forest-800 overflow-hidden card-transition hover:border-forest-sage/60 shadow-sm flex flex-col justify-between" data-aos="fade-up" data-aos-delay="0">
+          <div>
+            <div class="px-4 py-3 bg-slate-100 dark:bg-forest-850 border-b border-slate-200 dark:border-forest-800 flex items-center justify-between">
+              <div class="flex items-center gap-1.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-rose-500/70"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-amber-500/70"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-forest-sage/70"></span>
+              </div>
+              <span class="text-[11px] font-mono text-slate-500 truncate">api.ordersystem.internal/source</span>
+            </div>
+
+            <div class="p-6 space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-mono px-2.5 py-0.5 rounded bg-slate-100 dark:bg-forest-950 border border-slate-200 dark:border-forest-800 text-forest-accent dark:text-forest-sage font-bold">E-Commerce Web API</span>
+                <i class="fa-solid fa-cart-shopping text-slate-400 dark:text-slate-600"></i>
+              </div>
+              <h3 class="text-lg font-bold text-slate-900 dark:text-white">Order Management System</h3>
+              <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                Robust backend API managing customers, inventory, orders, and automated invoices. Features real-time stock deduction, global discounts, and role-based authorization (RBAC) secured with JWT tokens.
+              </p>
+              <div class="flex flex-wrap gap-1.5 pt-2">
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 dark:bg-forest-950 text-forest-accent dark:text-forest-light">.NET 8 Web API</span>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 dark:bg-forest-950 text-forest-accent dark:text-forest-light">JWT Auth</span>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 dark:bg-forest-950 text-forest-accent dark:text-forest-light">EF Core</span>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 dark:bg-forest-950 text-forest-accent dark:text-forest-light">Unit of Work</span>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 dark:bg-forest-950 text-forest-accent dark:text-forest-light">SQL Server</span>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 dark:bg-forest-950 text-forest-accent dark:text-forest-light">Swagger</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-6 pt-0">
+            <a href="https://github.com/Youssef-Dabash/Order-Management-System" target="_blank" rel="noopener noreferrer" class="w-full py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-forest-950 dark:hover:bg-forest-850 text-slate-800 dark:text-white text-xs font-semibold flex items-center justify-center gap-2 border border-slate-200 dark:border-forest-800 hover:border-forest-sage transition">
+              <i class="fa-brands fa-github text-sm"></i> View on GitHub
+            </a>
+          </div>
+        </article>
+
+        <!-- Project 5: Library Management System (ASP.NET Core MVC) -->
+        <article class="rounded-2xl bg-white dark:bg-forest-900 border border-slate-200 dark:border-forest-800 overflow-hidden card-transition hover:border-forest-sage/60 shadow-sm flex flex-col justify-between" data-aos="fade-up" data-aos-delay="100">
+          <div>
+            <div class="px-4 py-3 bg-slate-100 dark:bg-forest-850 border-b border-slate-200 dark:border-forest-800 flex items-center justify-between">
+              <div class="flex items-center gap-1.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-rose-500/70"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-amber-500/70"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-forest-sage/70"></span>
+              </div>
+              <span class="text-[11px] font-mono text-slate-500 truncate">library.theonereader.mvc/admin</span>
+            </div>
+
+            <div class="p-6 space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-mono px-2.5 py-0.5 rounded bg-slate-100 dark:bg-forest-950 border border-slate-200 dark:border-forest-800 text-forest-accent dark:text-forest-sage font-bold">ASP.NET Core MVC</span>
+                <i class="fa-solid fa-book-open text-slate-400 dark:text-slate-600"></i>
+              </div>
+              <h3 class="text-lg font-bold text-slate-900 dark:text-white">Library Management System</h3>
+              <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                Full-featured digital library system handling books cataloging, membership tiers, and borrowing transactions. Engineered with Repository & Unit of Work patterns, AJAX modals, and validation mechanisms (v2.0 in development).
+              </p>
+              <div class="flex flex-wrap gap-1.5 pt-2">
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 dark:bg-forest-950 text-forest-accent dark:text-forest-light">ASP.NET Core MVC</span>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 dark:bg-forest-950 text-forest-accent dark:text-forest-light">EF Core (.NET 8)</span>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 dark:bg-forest-950 text-forest-accent dark:text-forest-light">SQL Server</span>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 dark:bg-forest-950 text-forest-accent dark:text-forest-light">AJAX & jQuery</span>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 dark:bg-forest-950 text-forest-accent dark:text-forest-light">Repository Pattern</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-6 pt-0">
+            <a href="https://github.com/Youssef-Dabash/Library-Management-System" target="_blank" rel="noopener noreferrer" class="w-full py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-forest-950 dark:hover:bg-forest-850 text-slate-800 dark:text-white text-xs font-semibold flex items-center justify-center gap-2 border border-slate-200 dark:border-forest-800 hover:border-forest-sage transition">
+              <i class="fa-brands fa-github text-sm"></i> View on GitHub
+            </a>
+          </div>
+        </article>
+
+        <!-- Project 6: Integrated Medical Center (Desktop Windows Forms) -->
+        <article class="rounded-2xl bg-white dark:bg-forest-900 border border-slate-200 dark:border-forest-800 overflow-hidden card-transition hover:border-forest-sage/60 shadow-sm flex flex-col justify-between" data-aos="fade-up" data-aos-delay="200">
+          <div>
+            <div class="px-4 py-3 bg-slate-100 dark:bg-forest-850 border-b border-slate-200 dark:border-forest-800 flex items-center justify-between">
+              <div class="flex items-center gap-1.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-rose-500/70"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-amber-500/70"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-forest-sage/70"></span>
+              </div>
+              <span class="text-[11px] font-mono text-slate-500 truncate">app.medicalcenter.local/crud</span>
+            </div>
+
+            <div class="p-6 space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-mono px-2.5 py-0.5 rounded bg-slate-100 dark:bg-forest-950 border border-slate-200 dark:border-forest-800 text-forest-accent dark:text-forest-sage font-bold">Desktop System</span>
+                <i class="fa-solid fa-hospital-user text-slate-400 dark:text-slate-600"></i>
+              </div>
+              <h3 class="text-lg font-bold text-slate-900 dark:text-white">Integrated Medical Center</h3>
+              <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                Windows Forms application built with C# and SQLite. Provides complete patient lifecycle management with CRUD operations, zero-latency local storage, and structured record filtering.
+              </p>
+              <div class="flex flex-wrap gap-1.5 pt-2">
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 dark:bg-forest-950 text-forest-accent dark:text-forest-light">C# (.NET)</span>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 dark:bg-forest-950 text-forest-accent dark:text-forest-light">Windows Forms</span>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 dark:bg-forest-950 text-forest-accent dark:text-forest-light">SQLite</span>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 dark:bg-forest-950 text-forest-accent dark:text-forest-light">CRUD Engine</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-6 pt-0">
+            <a href="https://github.com/Youssef-Dabash/Integrated-Medical-Center" target="_blank" rel="noopener noreferrer" class="w-full py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-forest-950 dark:hover:bg-forest-850 text-slate-800 dark:text-white text-xs font-semibold flex items-center justify-center gap-2 border border-slate-200 dark:border-forest-800 hover:border-forest-sage transition">
+              <i class="fa-brands fa-github text-sm"></i> View on GitHub
+            </a>
+          </div>
+        </article>
 
       </div>
     </section>
 
-    <!-- ABOUT -->
-    <section id="about" class="scroll-mt-24 py-14 sm:py-20" data-aos="fade-up">
-      <div class="max-w-3xl mb-9">
-        <span class="text-forest-sage text-xs font-mono uppercase tracking-[.2em]">01 · About</span>
-        <h2 class="mt-2 text-2xl sm:text-3xl font-bold text-white tracking-tight">An engineering mindset, not just a technology list.</h2>
-        <p class="mt-3 text-sm sm:text-base text-slate-400 leading-7">
-          I approach development by first understanding the problem, the business rules, and the data flow.
-          Then I choose the simplest architecture and tools that can solve the problem well.
+
+    <!-- ================================================================= -->
+    <!-- CERTIFICATIONS SECTION                                            -->
+    <!-- ================================================================= -->
+    <section id="certifications" class="scroll-mt-20 space-y-10" data-aos="fade-up">
+      <div class="text-center max-w-2xl mx-auto space-y-2">
+        <span class="text-forest-accent dark:text-forest-sage text-xs font-mono uppercase tracking-[.25em]">Verified Credentials</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">Certifications & Badges</h2>
+        <div class="w-16 h-1 bg-forest-sage mx-auto rounded-full"></div>
+        <p class="text-slate-600 dark:text-slate-400 text-xs sm:text-sm mt-3">
+          Accredited credentials in Cloud Computing and Professional Remote Freelance Engineering.
         </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
-        <article class="card p-5 sm:p-6 rounded-2xl bg-forest-900/80 border border-forest-800" data-aos="fade-up" data-aos-delay="0">
-          <div class="w-11 h-11 rounded-xl bg-forest-850 border border-forest-800 flex items-center justify-center text-forest-sage">
-            <i class="fa-solid fa-brain"></i>
-          </div>
-          <h3 class="mt-5 text-lg font-bold text-white">Understand First</h3>
-          <p class="mt-3 text-sm text-slate-400 leading-7">
-            I focus on requirements, responsibilities, edge cases, and data flow before writing implementation code.
-          </p>
-        </article>
-
-        <article class="card p-5 sm:p-6 rounded-2xl bg-forest-900/80 border border-forest-800" data-aos="fade-up" data-aos-delay="100">
-          <div class="w-11 h-11 rounded-xl bg-forest-850 border border-forest-800 flex items-center justify-center text-forest-sage">
-            <i class="fa-solid fa-diagram-project"></i>
-          </div>
-          <h3 class="mt-5 text-lg font-bold text-white">Design with Purpose</h3>
-          <p class="mt-3 text-sm text-slate-400 leading-7">
-            I use separation of concerns, SOLID principles, and appropriate architecture to keep systems easier to maintain and extend.
-          </p>
-        </article>
-
-        <article class="card p-5 sm:p-6 rounded-2xl bg-forest-900/80 border border-forest-800" data-aos="fade-up" data-aos-delay="200">
-          <div class="w-11 h-11 rounded-xl bg-forest-850 border border-forest-800 flex items-center justify-center text-forest-sage">
-            <i class="fa-solid fa-shield-halved"></i>
-          </div>
-          <h3 class="mt-5 text-lg font-bold text-white">Build Responsibly</h3>
-          <p class="mt-3 text-sm text-slate-400 leading-7">
-            I pay attention to validation, authorization, error handling, database consistency, performance, and long-term maintainability.
-          </p>
-        </article>
-
-      </div>
-    </section>
-
-    <!-- SKILLS -->
-    <section id="skills" class="scroll-mt-24 py-14 sm:py-20" data-aos="fade-up">
-      <div class="mb-9">
-        <span class="text-forest-sage text-xs font-mono uppercase tracking-[.2em]">02 · Technical Stack</span>
-        <h2 class="mt-2 text-2xl sm:text-3xl font-bold text-white tracking-tight">Tools I use to build backend systems.</h2>
-      </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-
-        <div class="card p-5 rounded-2xl bg-forest-900/80 border border-forest-800" data-aos="fade-up" data-aos-delay="0">
-          <div class="flex items-center gap-3">
-            <i class="fa-brands fa-microsoft text-forest-sage"></i>
-            <h3 class="font-bold text-white">.NET & Backend</h3>
-          </div>
-          <div class="flex flex-wrap gap-2 mt-5">
-            <span class="tech">C#</span>
-            <span class="tech">.NET</span>
-            <span class="tech">ASP.NET Core</span>
-            <span class="tech">Web API</span>
-            <span class="tech">MVC</span>
-            <span class="tech">EF Core</span>
-            <span class="tech">LINQ</span>
-            <span class="tech">ADO.NET</span>
-            <span class="tech">Identity</span>
-            <span class="tech">JWT</span>
-          </div>
-        </div>
-
-        <div class="card p-5 rounded-2xl bg-forest-900/80 border border-forest-800" data-aos="fade-up" data-aos-delay="100">
-          <div class="flex items-center gap-3">
-            <i class="fa-solid fa-layer-group text-forest-sage"></i>
-            <h3 class="font-bold text-white">Architecture</h3>
-          </div>
-          <div class="flex flex-wrap gap-2 mt-5">
-            <span class="tech">Clean Architecture</span>
-            <span class="tech">N-Tier</span>
-            <span class="tech">CQRS</span>
-            <span class="tech">MediatR</span>
-            <span class="tech">SOLID</span>
-            <span class="tech">Design Patterns</span>
-            <span class="tech">Result Pattern</span>
-          </div>
-        </div>
-
-        <div class="card p-5 rounded-2xl bg-forest-900/80 border border-forest-800" data-aos="fade-up" data-aos-delay="200">
-          <div class="flex items-center gap-3">
-            <i class="fa-solid fa-database text-forest-sage"></i>
-            <h3 class="font-bold text-white">Data & APIs</h3>
-          </div>
-          <div class="flex flex-wrap gap-2 mt-5">
-            <span class="tech">SQL Server</span>
-            <span class="tech">PostgreSQL</span>
-            <span class="tech">SQLite</span>
-            <span class="tech">Relational Modeling</span>
-            <span class="tech">REST APIs</span>
-            <span class="tech">Swagger</span>
-            <span class="tech">Postman</span>
-          </div>
-        </div>
-
-        <div class="card p-5 rounded-2xl bg-forest-900/80 border border-forest-800" data-aos="fade-up" data-aos-delay="300">
-          <div class="flex items-center gap-3">
-            <i class="fa-solid fa-screwdriver-wrench text-forest-sage"></i>
-            <h3 class="font-bold text-white">Development</h3>
-          </div>
-          <div class="flex flex-wrap gap-2 mt-5">
-            <span class="tech">Git</span>
-            <span class="tech">GitHub</span>
-            <span class="tech">Docker</span>
-            <span class="tech">Visual Studio</span>
-            <span class="tech">VS Code</span>
-            <span class="tech">Debugging</span>
-            <span class="tech">Testing</span>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- PROJECTS -->
-    <section id="projects" class="scroll-mt-24 py-14 sm:py-20" data-aos="fade-up">
-      <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-9">
-        <div>
-          <span class="text-forest-sage text-xs font-mono uppercase tracking-[.2em]">03 · Projects</span>
-          <h2 class="mt-2 text-2xl sm:text-3xl font-bold text-white tracking-tight">Selected projects & systems.</h2>
-          <p class="mt-3 text-sm sm:text-base text-slate-400 max-w-2xl leading-7">
-            A selection of applications where I applied backend development, database design, authentication,
-            architecture, and practical problem-solving.
-          </p>
-        </div>
-
-        <a href="https://github.com/Youssef-Dabash" target="_blank" rel="noopener noreferrer"
-           class="shrink-0 text-sm text-forest-light hover:text-white transition flex items-center gap-2">
-          View all on GitHub <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
-        </a>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
-
-        <!-- Project 1 -->
-        <article class="card flex flex-col rounded-2xl bg-forest-900/90 border border-forest-800 overflow-hidden" data-aos="fade-up" data-aos-delay="0">
-          <div class="h-1 bg-forest-sage"></div>
-          <div class="p-5 sm:p-6 flex flex-col flex-1">
-            <div class="flex items-center justify-between gap-3">
-              <span class="project-type">E-Commerce API</span>
-              <i class="fa-solid fa-cart-shopping text-slate-600"></i>
+        <!-- Cert 1: AWS Academy Graduate -->
+        <article class="rounded-2xl bg-white dark:bg-forest-900 border border-slate-200 dark:border-forest-800 overflow-hidden card-transition hover:border-forest-sage/60 shadow-sm flex flex-col justify-between" data-aos="fade-up" data-aos-delay="0">
+          <div>
+            <div class="relative w-full h-48 bg-slate-950 border-b border-slate-200 dark:border-forest-800 overflow-hidden group cursor-pointer">
+              <img 
+                src="images/aws.jpeg" 
+                alt="AWS Academy Graduate - Cloud Foundations" 
+                class="w-full h-full object-cover group-hover:scale-105 transition duration-300"
+                onerror="this.src='images/aws.jpeg';" 
+              />
+              <div class="absolute top-3 right-3 px-2.5 py-1 rounded-md bg-slate-900/90 backdrop-blur-sm border border-slate-700 text-[10px] font-mono text-amber-400 font-bold flex items-center gap-1.5 shadow-sm">
+                <i class="fa-brands fa-aws text-xs"></i> AWS Academy
+              </div>
             </div>
-
-            <h3 class="mt-5 text-lg font-bold text-white">E-Commerce & Order Management</h3>
-            <p class="mt-3 text-sm text-slate-400 leading-7 flex-1">
-              Backend system for products, customers, orders, invoices, order states, inventory workflows,
-              authentication, and role-based access.
-            </p>
-
-            <div class="flex flex-wrap gap-2 mt-5">
-              <span class="tech">ASP.NET Core</span>
-              <span class="tech">EF Core</span>
-              <span class="tech">SQL Server</span>
-              <span class="tech">JWT</span>
-              <span class="tech">Clean Architecture</span>
+            <div class="p-6 space-y-3">
+              <div class="flex items-center justify-between text-xs font-mono">
+                <span class="text-forest-accent dark:text-forest-sage font-bold">Cloud Foundations</span>
+                <span class="text-slate-400 dark:text-slate-500">20 Hours</span>
+              </div>
+              <h3 class="font-bold text-slate-900 dark:text-white text-base leading-snug">AWS Academy Graduate — Cloud Foundations</h3>
+              <p class="text-xs text-slate-500 dark:text-slate-400">
+                Issued by AWS Academy · Training Badge for core cloud architecture, security, and networking concepts.
+              </p>
             </div>
-
-            <a href="https://github.com/Youssef-Dabash" target="_blank" rel="noopener noreferrer"
-               class="mt-6 w-full py-2.5 rounded-xl bg-forest-950 hover:bg-forest-850 text-white text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 border border-forest-800 transition">
-              <i class="fa-brands fa-github"></i> View on GitHub
+          </div>
+          <div class="p-6 pt-0 space-y-3">
+            <div class="pt-3 border-t border-slate-100 dark:border-forest-800/80 flex items-center justify-between text-xs font-mono text-slate-500">
+              <span>Issued: 05/11/2026</span>
+              <span class="text-forest-accent dark:text-forest-sage flex items-center gap-1 font-semibold"><i class="fa-solid fa-circle-check text-[10px]"></i> Credly Verified</span>
+            </div>
+            <a href="https://www.credly.com/go/jDhuRhS4" target="_blank" rel="noopener noreferrer" class="w-full py-2 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-forest-950 dark:hover:bg-forest-850 text-slate-800 dark:text-white text-xs font-semibold flex items-center justify-center gap-2 border border-slate-200 dark:border-forest-800 hover:border-amber-400 transition">
+              <i class="fa-solid fa-award text-amber-500"></i> View Credly Badge
             </a>
           </div>
         </article>
 
-        <!-- Project 2 -->
-        <article class="card flex flex-col rounded-2xl bg-forest-900/90 border border-forest-800 overflow-hidden" data-aos="fade-up" data-aos-delay="100">
-          <div class="h-1 bg-forest-sage"></div>
-          <div class="p-5 sm:p-6 flex flex-col flex-1">
-            <div class="flex items-center justify-between gap-3">
-              <span class="project-type">Service Platform</span>
-              <i class="fa-solid fa-users text-slate-600"></i>
+        <!-- Cert 2: Freelancing Basics (Mahara-Tech) -->
+        <article class="rounded-2xl bg-white dark:bg-forest-900 border border-slate-200 dark:border-forest-800 overflow-hidden card-transition hover:border-forest-sage/60 shadow-sm flex flex-col justify-between" data-aos="fade-up" data-aos-delay="100">
+          <div>
+            <div class="relative w-full h-48 bg-slate-100 dark:bg-forest-950 border-b border-slate-200 dark:border-forest-800 overflow-hidden group cursor-pointer">
+              <img 
+                src="images/cert-freelance-basic.png" 
+                alt="Freelancing Basics - ITI" 
+                class="w-full h-full object-cover group-hover:scale-105 transition duration-300"
+              />
+              <div class="absolute top-3 right-3 px-2.5 py-1 rounded-md bg-white/90 dark:bg-forest-950/90 backdrop-blur-sm border border-slate-200 dark:border-forest-800 text-[10px] font-mono text-forest-accent dark:text-forest-sage font-bold flex items-center gap-1.5 shadow-sm">
+                <i class="fa-solid fa-certificate text-xs"></i> ITI Mahara-Tech
+              </div>
             </div>
-
-            <h3 class="mt-5 text-lg font-bold text-white">ServicesHub</h3>
-            <p class="mt-3 text-sm text-slate-400 leading-7 flex-1">
-              Local services platform designed around users, categories, services, requests, ratings,
-              favorites, reports, and trusted-user administration.
-            </p>
-
-            <div class="flex flex-wrap gap-2 mt-5">
-              <span class="tech">ASP.NET Core</span>
-              <span class="tech">Identity</span>
-              <span class="tech">EF Core</span>
-              <span class="tech">CQRS</span>
-              <span class="tech">Clean Architecture</span>
+            <div class="p-6 space-y-3">
+              <div class="flex items-center justify-between text-xs font-mono">
+                <span class="text-forest-accent dark:text-forest-sage font-bold">Core Fundamentals</span>
+                <span class="text-slate-400 dark:text-slate-500">3h 8m</span>
+              </div>
+              <h3 class="font-bold text-slate-900 dark:text-white text-base leading-snug">Freelancing Basics</h3>
+              <p class="text-xs text-slate-500 dark:text-slate-400">
+                Information Technology Institute (ITI) · Client acquisition, contract management, delivery standards, and pricing strategies.
+              </p>
             </div>
-
-            <a href="https://github.com/Youssef-Dabash" target="_blank" rel="noopener noreferrer"
-               class="mt-6 w-full py-2.5 rounded-xl bg-forest-950 hover:bg-forest-850 text-white text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 border border-forest-800 transition">
-              <i class="fa-brands fa-github"></i> View on GitHub
-            </a>
+          </div>
+          <div class="p-6 pt-0">
+            <div class="pt-3 border-t border-slate-100 dark:border-forest-800/80 flex items-center justify-between text-xs font-mono text-slate-500">
+              <span>Code: <strong class="text-slate-700 dark:text-slate-300">zSjEvC31H4</strong></span>
+              <span class="text-forest-accent dark:text-forest-sage flex items-center gap-1 font-semibold"><i class="fa-solid fa-circle-check text-[10px]"></i> Verified</span>
+            </div>
           </div>
         </article>
 
-        <!-- Project 3 -->
-        <article class="card flex flex-col rounded-2xl bg-forest-900/90 border border-forest-800 overflow-hidden" data-aos="fade-up" data-aos-delay="200">
-          <div class="h-1 bg-forest-sage"></div>
-          <div class="p-5 sm:p-6 flex flex-col flex-1">
-            <div class="flex items-center justify-between gap-3">
-              <span class="project-type">Web Application</span>
-              <i class="fa-solid fa-book-open text-slate-600"></i>
+        <!-- Cert 3: Freelancing Upwork (Mahara-Tech) -->
+        <article class="rounded-2xl bg-white dark:bg-forest-900 border border-slate-200 dark:border-forest-800 overflow-hidden card-transition hover:border-forest-sage/60 shadow-sm flex flex-col justify-between" data-aos="fade-up" data-aos-delay="200">
+          <div>
+            <div class="relative w-full h-48 bg-slate-100 dark:bg-forest-950 border-b border-slate-200 dark:border-forest-800 overflow-hidden group cursor-pointer">
+              <img 
+                src="images/cert-freelance-upwork.png" 
+                alt="Getting Started as a Freelancer Upwork" 
+                class="w-full h-full object-cover group-hover:scale-105 transition duration-300"
+              />
+              <div class="absolute top-3 right-3 px-2.5 py-1 rounded-md bg-white/90 dark:bg-forest-950/90 backdrop-blur-sm border border-slate-200 dark:border-forest-800 text-[10px] font-mono text-forest-accent dark:text-forest-sage font-bold flex items-center gap-1.5 shadow-sm">
+                <i class="fa-solid fa-globe text-xs"></i> ITI Mahara-Tech
+              </div>
             </div>
-
-            <h3 class="mt-5 text-lg font-bold text-white">Library Management System</h3>
-            <p class="mt-3 text-sm text-slate-400 leading-7 flex-1">
-              ASP.NET Core MVC application for cataloging, members, borrowing workflows, server-side search,
-              pagination, and interactive operations.
-            </p>
-
-            <div class="flex flex-wrap gap-2 mt-5">
-              <span class="tech">ASP.NET MVC</span>
-              <span class="tech">EF Core</span>
-              <span class="tech">SQL Server</span>
-              <span class="tech">AJAX</span>
-              <span class="tech">Repository</span>
+            <div class="p-6 space-y-3">
+              <div class="flex items-center justify-between text-xs font-mono">
+                <span class="text-forest-accent dark:text-forest-sage font-bold">Global Marketplace</span>
+                <span class="text-slate-400 dark:text-slate-500">50 mins</span>
+              </div>
+              <h3 class="font-bold text-slate-900 dark:text-white text-base leading-snug">Getting Started as a Freelancer (Upwork)</h3>
+              <p class="text-xs text-slate-500 dark:text-slate-400">
+                Information Technology Institute (ITI) · Proposal bidding, international client communication, and milestone execution on Upwork.
+              </p>
             </div>
+          </div>
+          <div class="p-6 pt-0">
+            <div class="pt-3 border-t border-slate-100 dark:border-forest-800/80 flex items-center justify-between text-xs font-mono text-slate-500">
+              <span>Code: <strong class="text-slate-700 dark:text-slate-300">sX9NLYmeu4</strong></span>
+              <span class="text-forest-accent dark:text-forest-sage flex items-center gap-1 font-semibold"><i class="fa-solid fa-circle-check text-[10px]"></i> Verified</span>
+            </div>
+          </div>
+        </article>
 
-            <a href="https://github.com/Youssef-Dabash" target="_blank" rel="noopener noreferrer"
-               class="mt-6 w-full py-2.5 rounded-xl bg-forest-950 hover:bg-forest-850 text-white text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 border border-forest-800 transition">
-              <i class="fa-brands fa-github"></i> View on GitHub
-            </a>
+        <!-- Cert 4: Freelancing Mostaql (Mahara-Tech) -->
+        <article class="rounded-2xl bg-white dark:bg-forest-900 border border-slate-200 dark:border-forest-800 overflow-hidden card-transition hover:border-forest-sage/60 shadow-sm flex flex-col justify-between" data-aos="fade-up" data-aos-delay="0">
+          <div>
+            <div class="relative w-full h-48 bg-slate-100 dark:bg-forest-950 border-b border-slate-200 dark:border-forest-800 overflow-hidden group cursor-pointer">
+              <img 
+                src="images/cert-freelance-mostaql.png" 
+                alt="Getting Started as a Freelancer Mostaql" 
+                class="w-full h-full object-cover group-hover:scale-105 transition duration-300"
+              />
+              <div class="absolute top-3 right-3 px-2.5 py-1 rounded-md bg-white/90 dark:bg-forest-950/90 backdrop-blur-sm border border-slate-200 dark:border-forest-800 text-[10px] font-mono text-forest-accent dark:text-forest-sage font-bold flex items-center gap-1.5 shadow-sm">
+                <i class="fa-solid fa-briefcase text-xs"></i> ITI Mahara-Tech
+              </div>
+            </div>
+            <div class="p-6 space-y-3">
+              <div class="flex items-center justify-between text-xs font-mono">
+                <span class="text-forest-accent dark:text-forest-sage font-bold">Regional Marketplace</span>
+                <span class="text-slate-400 dark:text-slate-500">33 mins</span>
+              </div>
+              <h3 class="font-bold text-slate-900 dark:text-white text-base leading-snug">Getting Started as a Freelancer (Mostaql)</h3>
+              <p class="text-xs text-slate-500 dark:text-slate-400">
+                Information Technology Institute (ITI) · Project scoping, client negotiation, and regional software delivery on Mostaql.
+              </p>
+            </div>
+          </div>
+          <div class="p-6 pt-0">
+            <div class="pt-3 border-t border-slate-100 dark:border-forest-800/80 flex items-center justify-between text-xs font-mono text-slate-500">
+              <span>Code: <strong class="text-slate-700 dark:text-slate-300">PX9rWvOBro</strong></span>
+              <span class="text-forest-accent dark:text-forest-sage flex items-center gap-1 font-semibold"><i class="fa-solid fa-circle-check text-[10px]"></i> Verified</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Cert 5: Freelancing Khamsat (Mahara-Tech) -->
+        <article class="rounded-2xl bg-white dark:bg-forest-900 border border-slate-200 dark:border-forest-800 overflow-hidden card-transition hover:border-forest-sage/60 shadow-sm flex flex-col justify-between" data-aos="fade-up" data-aos-delay="100">
+          <div>
+            <div class="relative w-full h-48 bg-slate-100 dark:bg-forest-950 border-b border-slate-200 dark:border-forest-800 overflow-hidden group cursor-pointer">
+              <img 
+                src="images/cert-freelance-khamsat.png" 
+                alt="Getting Started as a Freelancer Khamsat" 
+                class="w-full h-full object-cover group-hover:scale-105 transition duration-300"
+              />
+              <div class="absolute top-3 right-3 px-2.5 py-1 rounded-md bg-white/90 dark:bg-forest-950/90 backdrop-blur-sm border border-slate-200 dark:border-forest-800 text-[10px] font-mono text-forest-accent dark:text-forest-sage font-bold flex items-center gap-1.5 shadow-sm">
+                <i class="fa-solid fa-cubes-stacked text-xs"></i> ITI Mahara-Tech
+              </div>
+            </div>
+            <div class="p-6 space-y-3">
+              <div class="flex items-center justify-between text-xs font-mono">
+                <span class="text-forest-accent dark:text-forest-sage font-bold">Micro-Services</span>
+                <span class="text-slate-400 dark:text-slate-500">1 Hour</span>
+              </div>
+              <h3 class="font-bold text-slate-900 dark:text-white text-base leading-snug">Getting Started as a Freelancer (Khamsat)</h3>
+              <p class="text-xs text-slate-500 dark:text-slate-400">
+                Information Technology Institute (ITI) · Packaging targeted software services, quick iterations, and customer satisfaction on Khamsat.
+              </p>
+            </div>
+          </div>
+          <div class="p-6 pt-0">
+            <div class="pt-3 border-t border-slate-100 dark:border-forest-800/80 flex items-center justify-between text-xs font-mono text-slate-500">
+              <span>Code: <strong class="text-slate-700 dark:text-slate-300">GVA7YoFVCw</strong></span>
+              <span class="text-forest-accent dark:text-forest-sage flex items-center gap-1 font-semibold"><i class="fa-solid fa-circle-check text-[10px]"></i> Verified</span>
+            </div>
           </div>
         </article>
 
       </div>
     </section>
 
-    <!-- APPROACH -->
-    <section class="py-14 sm:py-20" data-aos="fade-up">
-      <div class="rounded-3xl border border-forest-800 bg-forest-900/70 p-6 sm:p-10 lg:p-12 overflow-hidden relative">
-        <div class="absolute -right-20 -top-20 w-56 h-56 rounded-full bg-forest-sage/5 blur-3xl pointer-events-none"></div>
 
-        <div class="relative max-w-4xl">
-          <span class="text-forest-sage text-xs font-mono uppercase tracking-[.2em]">04 · How I Work</span>
-          <h2 class="mt-2 text-2xl sm:text-3xl font-bold text-white">From requirement to reliable software.</h2>
-
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5 mt-9">
-            <div>
-              <span class="text-forest-sage font-mono text-xs">01</span>
-              <h3 class="mt-2 font-bold text-white">Understand</h3>
-              <p class="mt-2 text-xs sm:text-sm text-slate-500 leading-6">Clarify requirements, rules, users, and edge cases.</p>
-            </div>
-            <div>
-              <span class="text-forest-sage font-mono text-xs">02</span>
-              <h3 class="mt-2 font-bold text-white">Design</h3>
-              <p class="mt-2 text-xs sm:text-sm text-slate-500 leading-6">Define responsibilities, data flow, and system boundaries.</p>
-            </div>
-            <div>
-              <span class="text-forest-sage font-mono text-xs">03</span>
-              <h3 class="mt-2 font-bold text-white">Build</h3>
-              <p class="mt-2 text-xs sm:text-sm text-slate-500 leading-6">Implement clean, maintainable, and testable solutions.</p>
-            </div>
-            <div>
-                <span class="text-forest-sage font-mono text-xs">04</span>
-                <h3 class="mt-2 font-bold text-white">Test</h3>
-                <p class="mt-2 text-xs sm:text-sm text-slate-500 leading-6">Validate logic with unit, integration, and API contract tests.</p>
-            </div>
-            <div>
-              <span class="text-forest-sage font-mono text-xs">05</span>
-              <h3 class="mt-2 font-bold text-white">Improve</h3>
-              <p class="mt-2 text-xs sm:text-sm text-slate-500 leading-6">Review performance, reliability, security, and maintainability.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact" class="scroll-mt-24 py-14 sm:py-20" data-aos="fade-up">
-      <div class="rounded-3xl bg-forest-900/90 border border-forest-800 p-6 sm:p-10 lg:p-14 text-center relative overflow-hidden">
-        <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-forest-sage/60 to-transparent"></div>
-
-        <span class="text-forest-sage text-xs font-mono uppercase tracking-[.2em]">05 · Contact</span>
-        <h2 class="mt-3 text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
-          Have a project in mind?
-        </h2>
-        <p class="mt-4 max-w-2xl mx-auto text-sm sm:text-base text-slate-400 leading-7">
-          I’m open to backend development opportunities, freelance projects, and collaborations
-          where I can help turn requirements into reliable software.
+    <!-- ================================================================= -->
+    <!-- CONTACT SECTION (Centered Direct Links List)                      -->
+    <!-- ================================================================= -->
+    <section id="contact" class="scroll-mt-20 space-y-10" data-aos="fade-up">
+      <div class="text-center max-w-2xl mx-auto space-y-2">
+        <span class="text-forest-accent dark:text-forest-sage text-xs font-mono uppercase tracking-[.25em]">Let's Connect</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">Contact Me</h2>
+        <div class="w-16 h-1 bg-forest-sage mx-auto rounded-full"></div>
+        <p class="text-slate-600 dark:text-slate-400 text-xs sm:text-sm mt-3">
+          Feel free to reach out for backend engineering opportunities, freelance projects, or technical discussions.
         </p>
+      </div>
 
-        <div class="flex flex-wrap items-center justify-center gap-3 mt-8">
-          <a href="mailto:youssefmohammeddabash@gmail.com"
-             class="w-full sm:w-auto px-5 py-3 rounded-xl bg-forest-accent text-white font-semibold hover:bg-forest-sage transition text-sm flex items-center justify-center gap-2 hover:-translate-y-0.5">
-            <i class="fa-solid fa-envelope"></i>
-            Email Me
-          </a>
-
-          <a href="https://github.com/Youssef-Dabash" target="_blank" rel="noopener noreferrer"
-             class="w-full sm:w-auto px-5 py-3 rounded-xl bg-forest-850 border border-forest-800 text-white hover:border-forest-700 transition text-sm flex items-center justify-center gap-2">
-            <i class="fa-brands fa-github"></i>
-            GitHub
-          </a>
-
-          <a href="https://www.linkedin.com/in/youssef-m-dabash-555162299" target="_blank" rel="noopener noreferrer"
-             class="w-full sm:w-auto px-5 py-3 rounded-xl bg-forest-850 border border-forest-800 text-white hover:border-forest-700 transition text-sm flex items-center justify-center gap-2">
-            <i class="fa-brands fa-linkedin"></i>
-            LinkedIn
+      <div class="max-w-2xl mx-auto space-y-3.5">
+        
+        <!-- Email Card -->
+        <div class="p-4 sm:p-5 rounded-2xl bg-white dark:bg-forest-900 border border-slate-200 dark:border-forest-800 flex items-center justify-between gap-4 card-transition hover:border-forest-sage/60 shadow-sm">
+          <div class="flex items-center gap-3.5 sm:gap-4 min-w-0">
+            <div class="w-11 h-11 rounded-xl bg-slate-100 dark:bg-forest-950 border border-slate-200 dark:border-forest-800 flex items-center justify-center text-forest-accent dark:text-forest-sage shrink-0">
+              <i class="fa-solid fa-envelope text-base"></i>
+            </div>
+            <div class="min-w-0">
+              <p class="text-[11px] text-slate-500 font-mono uppercase tracking-wider">Email</p>
+              <p class="text-xs sm:text-sm font-semibold text-slate-900 dark:text-white break-all sm:break-normal">
+                youssefmohammeddabash@gmail.com
+              </p>
+            </div>
+          </div>
+          <a href="mailto:youssefmohammeddabash@gmail.com" class="px-4 py-2 rounded-xl bg-forest-accent hover:bg-forest-sage text-white text-xs font-bold transition shrink-0 hover:-translate-y-0.5 shadow-sm">
+            Send Email
           </a>
         </div>
+
+        <!-- WhatsApp Card -->
+        <div class="p-4 sm:p-5 rounded-2xl bg-white dark:bg-forest-900 border border-slate-200 dark:border-forest-800 flex items-center justify-between gap-4 card-transition hover:border-forest-sage/60 shadow-sm">
+          <div class="flex items-center gap-3.5 sm:gap-4 min-w-0">
+            <div class="w-11 h-11 rounded-xl bg-slate-100 dark:bg-forest-950 border border-slate-200 dark:border-forest-800 flex items-center justify-center text-forest-accent dark:text-forest-sage shrink-0">
+              <i class="fa-brands fa-whatsapp text-lg"></i>
+            </div>
+            <div class="min-w-0">
+              <p class="text-[11px] text-slate-500 font-mono uppercase tracking-wider">WhatsApp</p>
+              <p class="text-xs sm:text-sm font-semibold text-slate-900 dark:text-white">
+                +20 12 0375 5577
+              </p>
+            </div>
+          </div>
+          <a href="https://wa.me/+201203755577" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-xl bg-forest-accent hover:bg-forest-sage text-white text-xs font-bold transition shrink-0 hover:-translate-y-0.5 shadow-sm">
+            Message
+          </a>
+        </div>
+
+        <!-- LinkedIn Card -->
+        <div class="p-4 sm:p-5 rounded-2xl bg-white dark:bg-forest-900 border border-slate-200 dark:border-forest-800 flex items-center justify-between gap-4 card-transition hover:border-forest-sage/60 shadow-sm">
+          <div class="flex items-center gap-3.5 sm:gap-4 min-w-0">
+            <div class="w-11 h-11 rounded-xl bg-slate-100 dark:bg-forest-950 border border-slate-200 dark:border-forest-800 flex items-center justify-center text-forest-accent dark:text-forest-sage shrink-0">
+              <i class="fa-brands fa-linkedin text-lg"></i>
+            </div>
+            <div class="min-w-0">
+              <p class="text-[11px] text-slate-500 font-mono uppercase tracking-wider">LinkedIn</p>
+              <p class="text-xs sm:text-sm font-semibold text-slate-900 dark:text-white">
+                youssef-m-dabash
+              </p>
+            </div>
+          </div>
+          <a href="https://www.linkedin.com/in/youssef-m-dabash-555162299" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-xl bg-forest-accent hover:bg-forest-sage text-white text-xs font-bold transition shrink-0 hover:-translate-y-0.5 shadow-sm">
+            Connect
+          </a>
+        </div>
+
+        <!-- GitHub Card -->
+        <div class="p-4 sm:p-5 rounded-2xl bg-white dark:bg-forest-900 border border-slate-200 dark:border-forest-800 flex items-center justify-between gap-4 card-transition hover:border-forest-sage/60 shadow-sm">
+          <div class="flex items-center gap-3.5 sm:gap-4 min-w-0">
+            <div class="w-11 h-11 rounded-xl bg-slate-100 dark:bg-forest-950 border border-slate-200 dark:border-forest-800 flex items-center justify-center text-forest-accent dark:text-forest-sage shrink-0">
+              <i class="fa-brands fa-github text-lg"></i>
+            </div>
+            <div class="min-w-0">
+              <p class="text-[11px] text-slate-500 font-mono uppercase tracking-wider">GitHub</p>
+              <p class="text-xs sm:text-sm font-semibold text-slate-900 dark:text-white">
+                Youssef-Dabash
+              </p>
+            </div>
+          </div>
+          <a href="https://github.com/Youssef-Dabash" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-xl bg-forest-accent hover:bg-forest-sage text-white text-xs font-bold transition shrink-0 hover:-translate-y-0.5 shadow-sm">
+            Follow
+          </a>
+        </div>
+
+        <!-- LeetCode Card -->
+        <div class="p-4 sm:p-5 rounded-2xl bg-white dark:bg-forest-900 border border-slate-200 dark:border-forest-800 flex items-center justify-between gap-4 card-transition hover:border-amber-400 shadow-sm">
+          <div class="flex items-center gap-3.5 sm:gap-4 min-w-0">
+            <div class="w-11 h-11 rounded-xl bg-slate-100 dark:bg-forest-950 border border-slate-200 dark:border-forest-800 flex items-center justify-center text-amber-500 shrink-0">
+              <i class="fa-solid fa-code text-base"></i>
+            </div>
+            <div class="min-w-0">
+              <p class="text-[11px] text-slate-500 font-mono uppercase tracking-wider">LeetCode</p>
+              <p class="text-xs sm:text-sm font-semibold text-slate-900 dark:text-white">
+                Problem Solving & Algorithms
+              </p>
+            </div>
+          </div>
+          <a href="https://leetcode.com/u/Ymuhammed" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-forest-950 dark:hover:bg-forest-850 border border-slate-200 dark:border-forest-800 text-amber-500 dark:text-amber-400 hover:border-amber-400 text-xs font-bold transition shrink-0 hover:-translate-y-0.5">
+            View Profile
+          </a>
+        </div>
+
       </div>
     </section>
 
   </main>
 
-  <!-- Back to top -->
-  <button id="back-to-top" aria-label="Back to top"
-    class="fixed bottom-6 right-6 z-50 w-11 h-11 rounded-full bg-forest-accent text-white shadow-lg opacity-0 pointer-events-none transition-all duration-300 flex items-center justify-center hover:bg-forest-sage">
+  <!-- ================================================================= -->
+  <!-- FOOTER & UTILITIES                                                -->
+  <!-- ================================================================= -->
+  <button id="back-to-top" aria-label="Back to top" class="fixed bottom-6 right-6 z-50 w-11 h-11 rounded-full bg-forest-accent text-white shadow-xl opacity-0 pointer-events-none transition-all duration-300 flex items-center justify-center hover:bg-forest-sage hover:scale-110">
     <i class="fa-solid fa-arrow-up"></i>
   </button>
 
-  <footer class="border-t border-forest-800 py-7 px-4 text-center text-xs text-slate-600 font-mono">
-    © 2026 Youssef Dabash · Built with C#, .NET & a focus on clean engineering.
+  <footer class="border-t border-slate-200 dark:border-forest-800 mt-24 py-8 px-4 text-center text-xs text-slate-500 font-mono transition-colors">
+    &copy; 2026 Youssef Dabash &bull; Built with C#, .NET & clean engineering discipline.
   </footer>
 
-  <!-- AOS -->
+  <!-- External Library Scripts -->
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-  <script>
-    AOS.init({
-      duration: 700,
-      once: true,
-      offset: 70,
-      easing: 'ease-out-cubic'
-    });
 
-    // Mobile menu toggle
-    const menuToggle = document.getElementById('menu-toggle');
-    const mobileMenu  = document.getElementById('mobile-menu');
-    const menuIcon    = document.getElementById('menu-icon');
-
-    menuToggle.addEventListener('click', () => {
-      const willOpen = mobileMenu.classList.contains('hidden');
-      mobileMenu.classList.toggle('hidden');
-      mobileMenu.classList.toggle('flex');
-      menuToggle.setAttribute('aria-expanded', String(willOpen));
-      menuIcon.className = willOpen ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
-    });
-
-    mobileMenu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        mobileMenu.classList.add('hidden');
-        mobileMenu.classList.remove('flex');
-        menuToggle.setAttribute('aria-expanded', 'false');
-        menuIcon.className = 'fa-solid fa-bars';
-      });
-    });
-
-    // Active nav link highlighting (scroll-based scrollspy)
-    const sections = document.querySelectorAll('main section[id]');
-    const navLinks = document.querySelectorAll('.nav-link, .mobile-link');
-
-    function updateActiveNav() {
-      const scrollPos = window.scrollY + window.innerHeight * 0.35;
-      let currentId = null;
-
-      sections.forEach(section => {
-        if (scrollPos >= section.offsetTop) {
-          currentId = section.getAttribute('id');
-        }
-      });
-
-      navLinks.forEach(link => {
-        const isActive = currentId && link.getAttribute('href') === `#${currentId}`;
-        link.classList.toggle('text-forest-sage', isActive);
-      });
-    }
-
-    window.addEventListener('scroll', updateActiveNav, { passive: true });
-    updateActiveNav();
-
-    // Navbar shadow on scroll
-    const header = document.querySelector('header');
-    window.addEventListener('scroll', () => {
-      header.classList.toggle('shadow-lg', window.scrollY > 10);
-      header.classList.toggle('shadow-black/30', window.scrollY > 10);
-    });
-
-    // Back to top button
-    const backToTop = document.getElementById('back-to-top');
-    window.addEventListener('scroll', () => {
-      const show = window.scrollY > 500;
-      backToTop.classList.toggle('opacity-0', !show);
-      backToTop.classList.toggle('pointer-events-none', !show);
-    });
-    backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-  </script>
+  <!-- Custom Scripts -->
+  <script src="js/main.js"></script>
 
 </body>
 </html>

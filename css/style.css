@@ -1,0 +1,51 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* حل مشكلة التمرير الدقيق لجميع السكاشن أسفل النافبار */
+section[id] {
+  scroll-margin-top: 5rem;
+}
+
+/* خلفية الماتريكس المتفاعلة مع الوضعين الليلي والفاتح */
+.bg-tech-grid {
+  background-size: 34px 34px;
+  background-image: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+}
+
+.dark .bg-tech-grid {
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+}
+
+/* حركات الكروت */
+.card-transition {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-transition:hover {
+  transform: translateY(-4px);
+}
+
+/* خط التايم لاين الرأسي المتفاعل مع الثيمين */
+.timeline-line::before {
+  content: '';
+  position: absolute;
+  top: 24px;
+  bottom: 24px;
+  left: 20px;
+  width: 2px;
+  background: #cbd5e1; /* في الوضع الفاتح */
+  z-index: 0;
+}
+
+.dark .timeline-line::before {
+  background: #1b2820; /* في الوضع الليلي */
+}
